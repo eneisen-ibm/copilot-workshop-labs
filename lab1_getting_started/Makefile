@@ -10,7 +10,7 @@ INCDIR = include
 DATADIR = data
 
 # Source files
-SOURCES = $(SRCDIR)/vitals.c
+SOURCES = $(SRCDIR)/vitals.c $(SRCDIR)/parser.c $(SRCDIR)/validator.c $(SRCDIR)/alerts.c
 HEADERS = $(INCDIR)/vitals.h
 
 # Default target

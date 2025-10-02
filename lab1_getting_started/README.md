@@ -26,12 +26,16 @@ lab1_getting_started/
 │   ├── Dockerfile        # Container environment setup
 │   └── README.md         # Dev container instructions
 ├── src/
-│   └── vitals.c          # Main implementation
+│   ├── vitals.c          # Main function and program entry point
+│   ├── parser.c          # CSV parsing functionality
+│   ├── validator.c       # Vitals validation logic
+│   └── alerts.c          # Alert generation and printing
 ├── include/
 │   └── vitals.h          # Header with struct and function declarations
 ├── data/
 │   └── sample_vitals.csv # Sample patient data
 ├── Makefile              # Build configuration
+├── validate_setup.sh     # Environment validation script
 └── README.md            # This file
 ```
 
@@ -110,20 +114,50 @@ Total records processed: 4
 - `make clean` - Remove build artifacts
 - `make help` - Show all available targets
 
+### Modular Architecture
+
+The code is organized into separate modules for better maintainability and understanding:
+
+#### **Core Modules:**
+
+| File | Purpose | Key Functions |
+|------|---------|---------------|
+| `src/vitals.c` | **Main Program** | `main()` - File processing and program flow |
+| `src/parser.c` | **CSV Parsing** | `parse_vitals_line()` - Parse CSV data into structs |
+| `src/validator.c` | **Data Validation** | `validate_vitals()` - Check against medical thresholds |
+| `src/alerts.c` | **Alert System** | `print_alert_if_needed()` - Generate medical alerts |
+
+#### **Shared Header:**
+- `include/vitals.h` - Common struct definitions and function declarations
+
 ### File Descriptions
 
 #### `include/vitals.h`
-Defines the `Vitals` struct and function prototypes:
-- `parse_vitals_line()` - Parse CSV row into struct
-- `validate_vitals()` - Check values against normal ranges
-- `print_alert_if_needed()` - Output alerts for abnormal values
+Defines the `Vitals` struct and function prototypes shared across all modules.
 
-#### `src/vitals.c`
-Complete implementation including:
-- Safe CSV parsing with error checking
-- Vital signs validation logic
-- Alert generation with detailed messages
-- Main function with file processing loop
+#### `src/vitals.c` - Main Program
+- Program entry point with `main()` function
+- Command-line argument processing
+- File I/O operations and line-by-line processing
+- Coordinates calls to parser, validator, and alert modules
+- Summary reporting and exit code handling
+
+#### `src/parser.c` - CSV Parser Module  
+- Safe CSV parsing with robust error checking
+- String tokenization and data type conversion
+- Buffer overflow protection
+- Input validation and error reporting
+
+#### `src/validator.c` - Medical Validation Module
+- Implements medical threshold checking
+- Heart rate: 50-110 bpm (bradycardia/tachycardia detection)
+- SpO2: ≥92% (hypoxemia detection)  
+- Temperature: 35.0-38.0°C (hypothermia/hyperthermia detection)
+
+#### `src/alerts.c` - Alert Generation Module
+- Medical alert formatting with proper terminology
+- Detailed alert messages showing abnormal values and normal ranges
+- Formatted output for healthcare professionals
 
 #### `data/sample_vitals.csv`
 Sample dataset with:
