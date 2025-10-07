@@ -1,34 +1,42 @@
-#include "vitals.h"
+#include "../include/vitals.h"
+#include "../include/vitals_constants.h"
 
-/**
- * @brief Validate vitals against normal ranges
- * 
- * Normal ranges:
- * - Heart rate: 50-110 bpm
- * - SpO2: >= 92%
- * - Temperature: 35.0-38.0°C
- */
-int validate_vitals(const Vitals *v) {
-    if (!v) {
-        return -1;
+int validate_and_alert(const VitalSigns* vitals, ProcessingStats* stats) {
+    if (vitals == NULL || stats == NULL) {
+        return 0;
     }
     
-    int abnormal = 0;
+    int alerts_count = 0;
     
     // Check heart rate
-    if (v->heart_rate < 50 || v->heart_rate > 110) {
-        abnormal = 1;
+    if (vitals->heart_rate < HR_MIN) {
+        print_alert(vitals, ALERT_BRADYCARDIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
+    } else if (vitals->heart_rate > HR_MAX) {
+        print_alert(vitals, ALERT_TACHYCARDIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
     // Check SpO2
-    if (v->spo2 < 92) {
-        abnormal = 1;
+    if (vitals->spo2 < SPO2_MIN) {
+        print_alert(vitals, ALERT_HYPOXEMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
     // Check temperature
-    if (v->temp_c < 35.0f || v->temp_c > 38.0f) {
-        abnormal = 1;
+    if (vitals->temperature < TEMP_MIN) {
+        print_alert(vitals, ALERT_HYPOTHERMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
+    } else if (vitals->temperature > TEMP_MAX) {
+        print_alert(vitals, ALERT_HYPERTHERMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
-    return abnormal;
+    stats->alerts_generated += alerts_count;
+    return alerts_count;
 }

@@ -1,90 +1,93 @@
+#include "../include/vitals.h"
+#include "../include/vitals_constants.h"
+#include "../include/string_utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
-#include "vitals.h"
 
-/**
- * @brief Main function - processes CSV file and monitors vitals
- */
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <csv_file>\n", argv[0]);
-        fprintf(stderr, "Example: %s data/sample_vitals.csv\n", argv[0]);
-        return 1;
+void print_summary(const ProcessingStats* stats) {
+    if (stats == NULL) return;
+    
+    printf("\n--- SUMMARY ---\n");
+    printf("Total records processed: %d\n", stats->total_records);
+    printf("   Parse errors: %d\n", stats->parse_errors);
+    printf("   Alerts generated: %d\n", stats->alerts_generated);
+    
+    if (stats->has_abnormal_vitals) {
+        printf("   WARNING: Abnormal vitals detected\n");
+    } else {
+        printf("   All vitals within normal ranges\n");
+    }
+}
+
+int process_vitals_file(const char* filename) {
+    if (filename == NULL) {
+        fprintf(stderr, "Error: No filename provided\n");
+        return ERROR_INVALID_FORMAT;
     }
     
-    const char *filename = argv[1];
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        fprintf(stderr, "Error: Cannot open file '%s': %s\n", filename, strerror(errno));
-        return 1;
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        fprintf(stderr, "Error: Could not open file '%s'\n", filename);
+        return ERROR_FILE_NOT_FOUND;
     }
     
     printf("Processing vitals from: %s\n", filename);
     printf("Monitoring for abnormal values...\n\n");
     
-    char line[256];
-    int line_number = 0;
-    int total_records = 0;
-    int alert_count = 0;
-    int parse_errors = 0;
+    ProcessingStats stats = {0, 0, 0, false};
+    char line[MAX_LINE_LENGTH];
+    bool is_header = true;
     
-    // Read file line by line
     while (fgets(line, sizeof(line), file)) {
-        line_number++;
-        
         // Skip header line
-        if (line_number == 1) {
+        if (is_header) {
+            is_header = false;
             continue;
-        }
-        
-        // Remove trailing newline
-        size_t len = strlen(line);
-        if (len > 0 && line[len - 1] == '\n') {
-            line[len - 1] = '\0';
         }
         
         // Skip empty lines
-        if (strlen(line) == 0) {
+        if (strlen(trim_whitespace(line)) == 0) {
             continue;
         }
         
-        Vitals vitals;
-        if (parse_vitals_line(line, &vitals) != 0) {
-            fprintf(stderr, "Parse error on line %d: %s\n", line_number, line);
-            parse_errors++;
-            continue;
-        }
-        
-        total_records++;
-        
-        // Check if vitals are abnormal and print alert if needed
-        if (validate_vitals(&vitals) == 1) {
-            if (print_alert_if_needed(&vitals) == 1) {
-                alert_count++;
-            }
+        VitalSigns vitals;
+        if (parse_vitals_line(line, &vitals)) {
+            stats.total_records++;
+            validate_and_alert(&vitals, &stats);
+        } else {
+            stats.parse_errors++;
+            fprintf(stderr, "Warning: Failed to parse line: %s", line);
         }
     }
     
     fclose(file);
+    print_summary(&stats);
     
-    // Print summary
-    printf("\n--- SUMMARY ---\n");
-    printf("Total records processed: %d\n", total_records);
-    printf("Parse errors: %d\n", parse_errors);
-    printf("Alerts generated: %d\n", alert_count);
+    return SUCCESS;
+}
+
+int main(int argc, char* argv[]) {
+    const char* default_file = "data/sample_vitals.csv";
+    const char* filename = (argc > 1) ? argv[1] : default_file;
     
-    if (parse_errors > 0) {
-        printf("WARNING: Some records could not be parsed\n");
-        return 2;
+    int result = process_vitals_file(filename);
+    
+    if (result != SUCCESS) {
+        switch (result) {
+            case ERROR_FILE_NOT_FOUND:
+                printf("Usage: %s [csv_file]\n", argv[0]);
+                printf("Default file: %s\n", default_file);
+                break;
+            case ERROR_INVALID_FORMAT:
+                printf("Invalid file format or corrupted data\n");
+                break;
+            default:
+                printf("Unknown error occurred\n");
+                break;
+        }
+        return result;
     }
     
-    if (alert_count > 0) {
-        printf("WARNING: Abnormal vitals detected\n");
-        return 3;
-    }
-    
-    printf("All vitals within normal ranges\n");
-    return 0;
+    return SUCCESS;
 }

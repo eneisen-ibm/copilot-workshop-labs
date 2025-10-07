@@ -1,75 +1,45 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/vitals.h"
+#include "../include/vitals_constants.h"
+#include "../include/string_utils.h"
 #include <string.h>
-#include "vitals.h"
 
-/**
- * @brief Parse a CSV line into a Vitals structure
- * 
- * Safely parses a comma-separated line with bounds checking.
- * Expected format: timestamp,heart_rate,spo2,temp_c
- */
-int parse_vitals_line(const char *line, Vitals *out) {
-    if (!line || !out) {
-        return -1;
+int parse_vitals_line(char* line, VitalSigns* vitals) {
+    if (line == NULL || vitals == NULL) {
+        return 0;
     }
     
-    // Create a working copy of the line for tokenization
-    char line_copy[256];
-    if (strlen(line) >= sizeof(line_copy)) {
-        fprintf(stderr, "Error: Line too long\n");
-        return -1;
+    // Skip empty lines or lines starting with whitespace/comments
+    char* trimmed = trim_whitespace(line);
+    if (strlen(trimmed) == 0 || trimmed[0] == '#') {
+        return 0;
     }
-    strcpy(line_copy, line);
     
-    // Parse timestamp
-    char *token = strtok(line_copy, ",");
-    if (!token) {
-        fprintf(stderr, "Error: Missing timestamp\n");
-        return -1;
+    // Split the CSV line
+    char* fields[4];
+    int field_count = split_csv_line(line, ',', fields, 4);
+    
+    if (field_count != 4) {
+        return 0;  // Invalid number of fields
     }
-    if (strlen(token) >= sizeof(out->ts)) {
-        fprintf(stderr, "Error: Timestamp too long\n");
-        return -1;
-    }
-    strcpy(out->ts, token);
+    
+    // Parse timestamp (just copy as string)
+    strncpy(vitals->timestamp, fields[CSV_TIMESTAMP_COL], sizeof(vitals->timestamp) - 1);
+    vitals->timestamp[sizeof(vitals->timestamp) - 1] = '\0';
     
     // Parse heart rate
-    token = strtok(NULL, ",");
-    if (!token) {
-        fprintf(stderr, "Error: Missing heart rate\n");
-        return -1;
-    }
-    char *endptr;
-    out->heart_rate = (int)strtol(token, &endptr, 10);
-    if (*endptr != '\0' || out->heart_rate < 0) {
-        fprintf(stderr, "Error: Invalid heart rate: %s\n", token);
-        return -1;
+    if (!safe_str_to_int(fields[CSV_HEART_RATE_COL], &vitals->heart_rate)) {
+        return 0;
     }
     
     // Parse SpO2
-    token = strtok(NULL, ",");
-    if (!token) {
-        fprintf(stderr, "Error: Missing SpO2\n");
-        return -1;
-    }
-    out->spo2 = (int)strtol(token, &endptr, 10);
-    if (*endptr != '\0' || out->spo2 < 0 || out->spo2 > 100) {
-        fprintf(stderr, "Error: Invalid SpO2: %s\n", token);
-        return -1;
+    if (!safe_str_to_int(fields[CSV_SPO2_COL], &vitals->spo2)) {
+        return 0;
     }
     
     // Parse temperature
-    token = strtok(NULL, ",");
-    if (!token) {
-        fprintf(stderr, "Error: Missing temperature\n");
-        return -1;
-    }
-    out->temp_c = strtof(token, &endptr);
-    if (*endptr != '\0' && *endptr != '\n' && *endptr != '\r') {
-        fprintf(stderr, "Error: Invalid temperature: %s\n", token);
-        return -1;
+    if (!safe_str_to_double(fields[CSV_TEMP_COL], &vitals->temperature)) {
+        return 0;
     }
     
-    return 0;
+    return 1;  // Success
 }
