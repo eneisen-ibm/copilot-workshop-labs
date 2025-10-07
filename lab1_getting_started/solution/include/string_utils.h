@@ -1,41 +1,39 @@
-#include <string.h>
-#include <stdio.h>
-#include "vitals_constants.h"
+#ifndef STRING_UTILS_H
+#define STRING_UTILS_H
+
+#include <stdlib.h>
 
 /**
- * @brief Safe string copy with bounds checking
- * 
- * @param dest Destination buffer
- * @param src Source string
- * @param dest_size Size of destination buffer
- * @return 0 on success, -1 on error
+ * Trims whitespace from the beginning and end of a string
+ * @param str The string to trim (modified in place)
+ * @return Pointer to the trimmed string
  */
-static inline int safe_string_copy(char *dest, const char *src, size_t dest_size) {
-    if (!dest || !src || dest_size == 0) {
-        return VITALS_ERROR_INVALID;
-    }
-    
-    size_t src_len = strlen(src);
-    if (src_len >= dest_size) {
-        return VITALS_ERROR_OVERFLOW; // Would overflow
-    }
-    
-    strncpy(dest, src, dest_size - 1);
-    dest[dest_size - 1] = '\0'; // Ensure null termination
-    return VITALS_SUCCESS;
-}
+char* trim_whitespace(char* str);
 
 /**
- * @brief Remove trailing newline from string safely
- * 
- * @param str String to process
- * @param max_len Maximum length to check
+ * Splits a CSV line into fields
+ * @param line The CSV line to split
+ * @param delimiter The delimiter character (usually ',')
+ * @param fields Array to store the field pointers
+ * @param max_fields Maximum number of fields to extract
+ * @return Number of fields extracted
  */
-static inline void safe_remove_newline(char *str, size_t max_len) {
-    if (!str) return;
-    
-    size_t len = strnlen(str, max_len);
-    if (len > 0 && str[len - 1] == '\n') {
-        str[len - 1] = '\0';
-    }
-}
+int split_csv_line(char* line, char delimiter, char** fields, int max_fields);
+
+/**
+ * Safely converts string to integer
+ * @param str The string to convert
+ * @param result Pointer to store the result
+ * @return 1 if successful, 0 if failed
+ */
+int safe_str_to_int(const char* str, int* result);
+
+/**
+ * Safely converts string to double
+ * @param str The string to convert
+ * @param result Pointer to store the result
+ * @return 1 if successful, 0 if failed
+ */
+int safe_str_to_double(const char* str, double* result);
+
+#endif // STRING_UTILS_H

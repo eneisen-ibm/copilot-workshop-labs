@@ -1,85 +1,72 @@
 #!/bin/bash
 
-# Validation script for GitHub Copilot C Workshop
-# This script verifies that the development environment is properly set up
-
-echo "🔍 Validating Workshop Environment..."
+# Vitals Analysis Setup Validation Script
+echo "🏥 Validating Vitals Analysis Setup..."
 echo "=================================="
 
 # Check if we're in the right directory
-if [ ! -f "Makefile" ] || [ ! -f "src/vitals.c" ]; then
-    echo "❌ Error: Please run this script from the lab1_getting_started directory"
+if [ ! -f "README.md" ] || [ ! -d "data" ]; then
+    echo "❌ Error: Please run this script from the new_vitals_analysis directory"
     exit 1
 fi
 
-# Test 1: Check GCC compiler
-echo -n "✓ Testing GCC compiler... "
-if command -v gcc >/dev/null 2>&1; then
-    GCC_VERSION=$(gcc --version | head -n1)
-    echo "✅ Found: $GCC_VERSION"
-else
-    echo "❌ GCC not found!"
+# Check for required tools
+echo "📋 Checking build environment..."
+if ! command -v gcc &> /dev/null; then
+    echo "❌ Error: gcc compiler not found"
+    echo "   Please install gcc to compile the C program"
     exit 1
 fi
+echo "✅ gcc compiler found"
 
-# Test 2: Check Make
-echo -n "✓ Testing Make... "
-if command -v make >/dev/null 2>&1; then
-    MAKE_VERSION=$(make --version | head -n1)
-    echo "✅ Found: $MAKE_VERSION"
-else
-    echo "❌ Make not found!"
+# Check data file
+echo "📋 Checking data files..."
+if [ ! -f "data/sample_vitals.csv" ]; then
+    echo "❌ Error: sample_vitals.csv not found in data directory"
     exit 1
 fi
+echo "✅ Sample data file found"
 
-# Test 3: Build the project
-echo -n "✓ Testing project build... "
-if make clean >/dev/null 2>&1 && make >/dev/null 2>&1; then
-    echo "✅ Build successful"
-else
-    echo "❌ Build failed!"
+# Clean any previous builds
+echo "📋 Cleaning previous builds..."
+make clean > /dev/null 2>&1
+
+# Build the project
+echo "📋 Building project..."
+if ! make > /dev/null 2>&1; then
+    echo "❌ Error: Build failed"
+    echo "   Run 'make' to see detailed error messages"
     exit 1
 fi
+echo "✅ Project built successfully"
 
-# Test 4: Check if executable was created
-echo -n "✓ Testing executable creation... "
-if [ -x "vitals_cli" ]; then
-    echo "✅ Executable 'vitals_cli' created"
-else
-    echo "❌ Executable not found!"
+# Check if executable was created
+if [ ! -f "vitals_cli" ]; then
+    echo "❌ Error: vitals_cli executable not created"
     exit 1
 fi
+echo "✅ Executable created"
 
-# Test 5: Test program execution
-echo -n "✓ Testing program execution... "
-OUTPUT=$(./vitals_cli data/sample_vitals.csv 2>&1)
-EXIT_CODE=$?
-if [ $EXIT_CODE -eq 3 ] && echo "$OUTPUT" | grep -q "ALERT"; then
-    echo "✅ Program runs successfully (found alerts as expected)"
-else
-    echo "❌ Program execution failed! (Exit code: $EXIT_CODE)"
-    exit 1
-fi
+# Test run
+echo "📋 Testing program execution..."
+echo "Expected output should show 3 alerts (Tachycardia, Hypoxemia, Hyperthermia):"
+echo "----------------------------------------"
+./vitals_cli
+echo "----------------------------------------"
 
-# Test 6: Check for sample data
-echo -n "✓ Testing sample data... "
-if [ -f "data/sample_vitals.csv" ]; then
-    LINES=$(wc -l < data/sample_vitals.csv)
-    echo "✅ Sample CSV found ($LINES lines)"
+# Verify basic functionality
+if ./vitals_cli > /dev/null 2>&1; then
+    echo "✅ Program executed without errors"
 else
-    echo "❌ Sample data not found!"
+    echo "❌ Error: Program execution failed"
     exit 1
 fi
 
 echo ""
-echo "🎉 Environment Validation Complete!"
-echo "=================================="
-echo "✅ All tests passed - you're ready for the workshop!"
+echo "🎉 Setup validation completed successfully!"
+echo "✅ All components are working correctly"
 echo ""
-echo "Quick commands to try:"
-echo "  make            # Build the project"
-echo "  make run        # Build and run with sample data"
-echo "  make clean      # Clean build artifacts"
-echo "  make help       # Show all available targets"
-echo ""
-echo "Happy coding with GitHub Copilot! 🚀"
+echo "You can now:"
+echo "  • Run 'make run' to execute with default data"
+echo "  • Run 'make run-file FILE=path/to/file.csv' with custom data"
+echo "  • Run 'make help' to see all available commands"

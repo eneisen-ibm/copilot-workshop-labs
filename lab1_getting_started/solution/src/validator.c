@@ -1,37 +1,42 @@
-#include "vitals.h"
-#include "vitals_constants.h"
+#include "../include/vitals.h"
+#include "../include/vitals_constants.h"
 
-/**
- * @brief Validate vitals against normal ranges
- * 
- * Normal ranges defined in vitals_constants.h:
- * - Heart rate: 50-110 bpm
- * - SpO2: >= 92%
- * - Temperature: 35.0-38.0°C
- */
-int validate_vitals(const Vitals *v) {
-    if (!v) {
-        return VITALS_ERROR_INVALID;
+int validate_and_alert(const VitalSigns* vitals, ProcessingStats* stats) {
+    if (vitals == NULL || stats == NULL) {
+        return 0;
     }
     
-    int abnormal = 0;
+    int alerts_count = 0;
     
-    // Check heart rate against defined constants
-    if (v->heart_rate < HEART_RATE_MIN_NORMAL || 
-        v->heart_rate > HEART_RATE_MAX_NORMAL) {
-        abnormal = 1;
+    // Check heart rate
+    if (vitals->heart_rate < HR_MIN) {
+        print_alert(vitals, ALERT_BRADYCARDIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
+    } else if (vitals->heart_rate > HR_MAX) {
+        print_alert(vitals, ALERT_TACHYCARDIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
-    // Check SpO2 against defined constants
-    if (v->spo2 < SPO2_MIN_NORMAL) {
-        abnormal = 1;
+    // Check SpO2
+    if (vitals->spo2 < SPO2_MIN) {
+        print_alert(vitals, ALERT_HYPOXEMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
-    // Check temperature against defined constants
-    if (v->temp_c < TEMP_MIN_NORMAL || 
-        v->temp_c > TEMP_MAX_NORMAL) {
-        abnormal = 1;
+    // Check temperature
+    if (vitals->temperature < TEMP_MIN) {
+        print_alert(vitals, ALERT_HYPOTHERMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
+    } else if (vitals->temperature > TEMP_MAX) {
+        print_alert(vitals, ALERT_HYPERTHERMIA);
+        alerts_count++;
+        stats->has_abnormal_vitals = true;
     }
     
-    return abnormal;
+    stats->alerts_generated += alerts_count;
+    return alerts_count;
 }

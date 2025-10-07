@@ -68,40 +68,4 @@ Total records processed: 4
    WARNING: Abnormal vitals detected
 ```
 
-## 🏗️ **Project Structure**
-
-```
-new_vitals_analysis/
-├── README.md               # Project documentation
-├── Makefile               # Build configuration
-├── validate_setup.sh      # Setup validation script
-├── vitals_cli             # Compiled executable (after build)
-├── data/
-│   └── sample_vitals.csv  # Sample vitals data
-├── include/               # Header files
-│   ├── vitals_constants.h # Constants and thresholds
-│   ├── string_utils.h     # String parsing utilities
-│   └── vitals.h           # Core vitals structures and functions
-├── src/                   # Source files
-│   ├── vitals.c           # Main program and file processing
-│   ├── parser.c           # CSV parsing logic
-│   ├── validator.c        # Vitals validation and alerting
-│   ├── alerts.c           # Alert formatting and display
-│   └── string_utils.c     # String utility implementations
-└── obj/                   # Object files (created during build)
-```
-
-## 📊 **CSV File Format**
-
-The program expects CSV files with the following format:
-```csv
-ts,heart_rate,spo2,temp_c
-2025-09-30T08:00:00Z,78,98,36.8
-2025-09-30T08:05:00Z,121,95,37.1
-```
-
-- `ts`: ISO 8601 timestamp
-- `heart_rate`: Heart rate in beats per minute (integer)
-- `spo2`: Oxygen saturation percentage (integer)
-- `temp_c`: Temperature in Celsius (decimal)
 

@@ -1,58 +1,70 @@
 #ifndef VITALS_H
 #define VITALS_H
 
-/**
- * @file vitals.h
- * @brief Header file for patient vitals monitoring system
- * 
- * This header defines the Vitals structure and related functions for
- * parsing, validating, and alerting on patient vital signs data.
- */
+#include <stdio.h>
+#include <stdbool.h>
 
-/**
- * @struct Vitals
- * @brief Structure to hold patient vital signs data
- */
+// Structure to hold vital signs data
 typedef struct {
-    char ts[25];        /**< Timestamp string (ISO 8601 format) */
-    int heart_rate;     /**< Heart rate in beats per minute */
-    int spo2;          /**< Blood oxygen saturation percentage */
-    float temp_c;      /**< Body temperature in Celsius */
-} Vitals;
+    char timestamp[32];
+    int heart_rate;
+    int spo2;
+    double temperature;
+} VitalSigns;
+
+// Structure to hold processing statistics
+typedef struct {
+    int total_records;
+    int parse_errors;
+    int alerts_generated;
+    bool has_abnormal_vitals;
+} ProcessingStats;
+
+// Alert types
+typedef enum {
+    ALERT_BRADYCARDIA,
+    ALERT_TACHYCARDIA,
+    ALERT_HYPOXEMIA,
+    ALERT_HYPOTHERMIA,
+    ALERT_HYPERTHERMIA
+} AlertType;
+
+// Function declarations
 
 /**
- * @brief Parse a CSV line into a Vitals structure
- * 
- * Parses a comma-separated line containing timestamp, heart rate, SpO2, and temperature.
- * 
- * @param line Input CSV line to parse
- * @param out Pointer to Vitals structure to populate
- * @return 0 on success, -1 on error
+ * Parses a CSV line into VitalSigns structure
+ * @param line The CSV line to parse
+ * @param vitals Pointer to VitalSigns structure to fill
+ * @return 1 if successful, 0 if failed
  */
-int parse_vitals_line(const char *line, Vitals *out);
+int parse_vitals_line(char* line, VitalSigns* vitals);
 
 /**
- * @brief Validate vitals against normal ranges
- * 
- * Checks if vital signs are within normal ranges:
- * - Heart rate: 50-110 bpm
- * - SpO2: >= 92%
- * - Temperature: 35.0-38.0°C
- * 
- * @param v Pointer to Vitals structure to validate
- * @return 0 if all vitals normal, 1 if any abnormal, -1 on error
+ * Validates vital signs and generates alerts if needed
+ * @param vitals The vital signs to validate
+ * @param stats Processing statistics to update
+ * @return Number of alerts generated for this record
  */
-int validate_vitals(const Vitals *v);
+int validate_and_alert(const VitalSigns* vitals, ProcessingStats* stats);
 
 /**
- * @brief Print alert message if vitals are abnormal
- * 
- * Prints detailed alert information including timestamp and which
- * vital signs are outside normal ranges.
- * 
- * @param v Pointer to Vitals structure to check
- * @return 0 if no alert needed, 1 if alert printed, -1 on error
+ * Processes the entire CSV file
+ * @param filename Path to the CSV file
+ * @return 0 if successful, error code otherwise
  */
-int print_alert_if_needed(const Vitals *v);
+int process_vitals_file(const char* filename);
 
-#endif /* VITALS_H */
+/**
+ * Prints an alert message for abnormal vital signs
+ * @param vitals The vital signs data
+ * @param alert_type The type of alert to print
+ */
+void print_alert(const VitalSigns* vitals, AlertType alert_type);
+
+/**
+ * Prints the processing summary
+ * @param stats Processing statistics
+ */
+void print_summary(const ProcessingStats* stats);
+
+#endif // VITALS_H
