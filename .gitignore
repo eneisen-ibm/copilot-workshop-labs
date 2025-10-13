@@ -1,0 +1,60 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dSYM/
+
+# Compiled object files
+obj/
+build/
+dist/
+
+# Executables
+data_generator
+vitals_cli
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Documentation build output
+docs/html/
+docs/latex/
+docs/xml/
+
+# Backup and temporary copies
+*_copy/
+*_backup/
+lab2_data_generator_copy/
+lab_baseline/
+
+# OS specific files
+Thumbs.db
+.DS_Store
+._*
+
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.env
+
+# Other common artifacts
+*.zip
+*.tar.gz
+*.tar.bz2
