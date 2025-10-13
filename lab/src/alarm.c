@@ -37,7 +37,7 @@ int check_and_print_alarms(const GeneratedData* data, const Config* config) {
         
         if (change > config->rapid_change_threshold) {
             printf("ALARM: Rapid glucose increase detected!\n");
-        } else if (change < -config->rapid_change_threshold) {
+        } else if (change < -(config->rapid_change_threshold)) {
             printf("ALARM: Rapid glucose decrease detected!\n");
         }
     }
