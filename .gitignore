@@ -36,8 +36,7 @@ docs/xml/
 # Backup and temporary copies
 *_copy/
 *_backup/
-lab2_data_generator_copy/
-lab_baseline/
+savefiles/
 
 # OS specific files
 Thumbs.db
