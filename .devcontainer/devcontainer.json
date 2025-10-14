@@ -17,6 +17,6 @@
             ]
         }
     },
-    "postCreateCommand": "apt-get update && apt-get install -y build-essential gcc make doxygen",
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential gcc make doxygen",
     "remoteUser": "vscode"
 }

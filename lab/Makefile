@@ -34,7 +34,7 @@ $(OBJDIR):
 
 # Build target executable
 $(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET)
+	$(CC) $(OBJECTS) -o $(TARGET) -lm
 
 # Build object files with header dependencies
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) | $(OBJDIR)
