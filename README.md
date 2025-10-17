@@ -8,9 +8,9 @@ This workshop demonstrates how to use GitHub Copilot effectively for C programmi
 
 ## Lab Structure
 
-- **lab_1/** - Basic glucose data generation and simple visualization
-- **lab_2/** - Enhanced data processing with statistical analysis  
-- **lab_3/** - Complete system with alarms, configuration, and unit tests
+- **lab_1/** - Code Repository exploration, inline code compleation, agent mode, code review and pull request summary
+- **lab_2/** - Complete system with alarm functionality, pull request summary and review
+- **lab_3/** - Creating unittest with copilot and code repository blueprint
 
 ## Getting Started
 
