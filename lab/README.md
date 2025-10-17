@@ -12,15 +12,15 @@ This program simulates a glucose monitoring device that generates synthetic gluc
    - Simulates realistic anomalies (hypoglycemia and hyperglycemia)
 
 ### 2. **Statistical Analysis**
-   - **Time in Range (TIR)**: Percentage of readings in target range (70-180 mg/dL)
-   - **Time Below Range (TBR)**: Percentage below 70 mg/dL
-   - **Time Above Range (TAR)**: Percentage above 180 mg/dL
+   - **Time in Range (TIR)**: Percentage of readings in target range (configurable thresholds)
+   - **Time Below Range (TBR)**: Percentage below hypoglycemia threshold (configurable)
+   - **Time Above Range (TAR)**: Percentage above hyperglycemia threshold (configurable)
    - **Average Glucose**: Running average of all readings
    - **Glucose Variability**: Standard deviation of glucose values
 
 ### 3. **Alarm System**
-   - **Hypoglycemia Alarm**: Glucose < 70 mg/dL
-   - **Hyperglycemia Alarm**: Glucose > 180 mg/dL
+   - **Hypoglycemia Alarm**: Glucose below configurable threshold (default: 70 mg/dL)
+   - **Hyperglycemia Alarm**: Glucose above configurable threshold (default: 180 mg/dL)
    - **Rapid Change Detection**: Sudden glucose fluctuations
 
 ### 4. **Modular Architecture**
@@ -91,9 +91,9 @@ lab/
 
 ## Configuration
 The system uses configurable parameters defined in `config.c`:
-- **Hypoglycemia Threshold**: 70 mg/dL
-- **Hyperglycemia Threshold**: 180 mg/dL
-- **Rapid Change Threshold**: 30 mg/dL
+- **Hypoglycemia Threshold**: 70 mg/dL (configurable)
+- **Hyperglycemia Threshold**: 180 mg/dL (configurable)
+- **Rapid Change Threshold**: 30 mg/dL (configurable)
 - **Update Interval**: 2 seconds
 
 ## Technical Details

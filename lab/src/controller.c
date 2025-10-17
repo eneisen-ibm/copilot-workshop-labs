@@ -32,12 +32,13 @@ int generate_and_display_data(GeneratedData* data) {
  * 
  * @param stats Pointer to GlucoseStats structure.
  * @param data Pointer to GeneratedData structure.
+ * @param config Pointer to Config structure.
  * @return 0 on success, -1 on error.
  */
-int analyze_data(GlucoseStats* stats, const GeneratedData* data) {
-    if (stats == NULL || data == NULL) return -1;
+int analyze_data(GlucoseStats* stats, const GeneratedData* data, const Config* config) {
+    if (stats == NULL || data == NULL || config == NULL) return -1;
     
-    if (update_glucose_statistics(stats, data) != 0) return -1;
+    if (update_glucose_statistics(stats, data, config) != 0) return -1;
     if (print_glucose_statistics(stats) != 0) return -1;
     
     return 0;
@@ -84,7 +85,7 @@ int run_controller(void) {
             continue;
         }
         
-        if (analyze_data(&stats, &data) != 0) {
+        if (analyze_data(&stats, &data, &config) != 0) {
             printf("Warning: Failed to analyze data, continuing...\n");
             continue;
         }
