@@ -9,7 +9,7 @@
 typedef struct {
     char timestamp[32];           // ISO timestamp of the reading
     double glucose_value;         // Current glucose value in mg/dL
-    double glucose_history[24];   // Glucose values over the past 24 hours
+    double glucose_history[30];   // Last 30 glucose values
 } GeneratedData;
 
 /**

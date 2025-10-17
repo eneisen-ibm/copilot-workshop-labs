@@ -61,7 +61,7 @@ int generate_glucose_data(GeneratedData* data) {
     }
 
     // Shift glucose history to make room for the new value
-    for (int i = 23; i > 0; i--) {
+    for (int i = 29; i > 0; i--) {
         data->glucose_history[i] = data->glucose_history[i - 1];
     }
 
