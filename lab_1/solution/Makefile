@@ -14,7 +14,6 @@ SOURCES = $(SRCDIR)/main.c \
           $(SRCDIR)/data_generator.c \
           $(SRCDIR)/analysis.c \
           $(SRCDIR)/visualization.c \
-          $(SRCDIR)/alarm.c \
           $(SRCDIR)/config.c
 
 OBJECTS = $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
@@ -42,11 +41,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) | $(OBJDIR)
 
 # Specific dependencies for better incremental builds
 $(OBJDIR)/main.o: $(SRCDIR)/main.c $(INCDIR)/controller.h
-$(OBJDIR)/controller.o: $(SRCDIR)/controller.c $(INCDIR)/controller.h $(INCDIR)/data_generator.h $(INCDIR)/analysis.h $(INCDIR)/visualization.h $(INCDIR)/alarm.h $(INCDIR)/config.h
+$(OBJDIR)/controller.o: $(SRCDIR)/controller.c $(INCDIR)/controller.h $(INCDIR)/data_generator.h $(INCDIR)/analysis.h $(INCDIR)/visualization.h $(INCDIR)/config.h
 $(OBJDIR)/data_generator.o: $(SRCDIR)/data_generator.c $(INCDIR)/data_generator.h
-$(OBJDIR)/analysis.o: $(SRCDIR)/analysis.c $(INCDIR)/analysis.h $(INCDIR)/data_generator.h
+$(OBJDIR)/analysis.o: $(SRCDIR)/analysis.c $(INCDIR)/analysis.h $(INCDIR)/data_generator.h $(INCDIR)/config.h
 $(OBJDIR)/visualization.o: $(SRCDIR)/visualization.c $(INCDIR)/visualization.h $(INCDIR)/data_generator.h
-$(OBJDIR)/alarm.o: $(SRCDIR)/alarm.c $(INCDIR)/alarm.h $(INCDIR)/data_generator.h $(INCDIR)/config.h
 $(OBJDIR)/config.o: $(SRCDIR)/config.c $(INCDIR)/config.h
 
 # Clean build artifacts

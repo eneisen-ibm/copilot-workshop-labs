@@ -2,6 +2,7 @@
 #define ANALYSIS_H
 
 #include "data_generator.h"
+#include "config.h"
 
 /**
  * @file analysis.h
@@ -10,9 +11,9 @@
 
 // Structure to hold glucose statistics
 typedef struct {
-    double time_in_range; // Percentage of time in range (70-180 mg/dL)
-    double time_below_range; // Percentage of time below range (<70 mg/dL)
-    double time_above_range; // Percentage of time above range (>180 mg/dL)
+    double time_in_range; // Percentage of time in target range (configurable)
+    double time_below_range; // Percentage of time below target range (configurable)
+    double time_above_range; // Percentage of time above target range (configurable)
     double avg_glucose; // Average glucose value
     double glucose_variability; // Standard deviation of glucose values
 } GlucoseStats;
@@ -36,9 +37,10 @@ int initialize_glucose_statistics(GlucoseStats* stats);
  *
  * @param stats Pointer to the GlucoseStats structure to update.
  * @param data Pointer to the GeneratedData structure containing new data.
+ * @param config Pointer to the Config structure containing threshold values.
  * @return 0 on success, -1 on error.
  */
-int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data);
+int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data, const Config* config);
 
 /**
  * @brief Prints the glucose statistics to the terminal.

@@ -37,15 +37,16 @@ int initialize_glucose_statistics(GlucoseStats* stats) {
  *
  * @param stats Pointer to the GlucoseStats structure to update.
  * @param data Pointer to the GeneratedData structure containing new data.
+ * @param config Pointer to the Config structure containing threshold values.
  * @return 0 on success, -1 on error.
  */
-int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data) {
-    if (stats == NULL || data == NULL) return -1;
+int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data, const Config* config) {
+    if (stats == NULL || data == NULL || config == NULL) return -1;
 
-    // Calculate time in range, below range, and above range
-    if (data->glucose_value < 70) {
+    // Calculate time in range, below range, and above range using config thresholds
+    if (data->glucose_value < config->hypoglycemia_threshold) {
         stats->time_below_range++;
-    } else if (data->glucose_value > 180) {
+    } else if (data->glucose_value > config->hyperglycemia_threshold) {
         stats->time_above_range++;
     } else {
         stats->time_in_range++;

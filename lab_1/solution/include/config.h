@@ -12,7 +12,6 @@
 typedef struct {
     int hypoglycemia_threshold;
     int hyperglycemia_threshold;
-    int rapid_change_threshold;
     int sleep_interval;
 } Config;
 

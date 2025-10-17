@@ -21,9 +21,9 @@ int print_glucose_data(const GeneratedData* data) {
     printf("\n--- Glucose Data ---\n");
     printf("Timestamp: %s\n", data->timestamp);
     printf("Glucose Value: %.1f mg/dL\n", data->glucose_value);
-    printf("Glucose History (last 24 hours):\n");
+    printf("Glucose History (last 30 entries):\n");
     
-    for (int i = 0; i < 24; i++) {
+    for (int i = 0; i < 30; i++) {
         printf("%.1f ", data->glucose_history[i]);
     }
     
