@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_5fcontroller_0',['run_controller',['../controller_8c.html#ab33e0ec1f43d40ff92eb2a3221ab604a',1,'run_controller(void):&#160;controller.c'],['../controller_8h.html#ab33e0ec1f43d40ff92eb2a3221ab604a',1,'run_controller(void):&#160;controller.c']]]
+  ['update_5fglucose_5fstatistics_0',['update_glucose_statistics',['../analysis_8c.html#a0cb7f494fb7a74ca054364b143888c06',1,'update_glucose_statistics(GlucoseStats *stats, const GeneratedData *data):&#160;analysis.c'],['../analysis_8h.html#a0cb7f494fb7a74ca054364b143888c06',1,'update_glucose_statistics(GlucoseStats *stats, const GeneratedData *data):&#160;analysis.c']]]
 ];

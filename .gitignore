@@ -37,6 +37,7 @@ docs/xml/
 *_copy/
 *_backup/
 savefiles/
+test
 
 # OS specific files
 Thumbs.db
