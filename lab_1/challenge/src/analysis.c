@@ -17,8 +17,17 @@
  * @param stats Pointer to the GlucoseStats structure to initialize.
  * @return 0 on success, -1 on error.
  */
-int initialize_glucose_statistics() {
+int initialize_glucose_statistics(GlucoseStats* stats) {
+    if (stats == NULL) return -1;
+
+    stats->time_in_range = 0;
+    stats->time_below_range = 0;
+    stats->time_above_range = 0;
+    stats->avg_glucose = 0.0;
+    stats->glucose_variability = 0.0;
+    stats->sum_squared_diff = 0.0;
     
+    return 0;
 }
 
 /**
@@ -31,8 +40,31 @@ int initialize_glucose_statistics() {
  * @param data Pointer to the GeneratedData structure containing new data.
  * @return 0 on success, -1 on error.
  */
-int update_glucose_statistics() {
+int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data) {
+    if (stats == NULL || data == NULL) return -1;
+
+    // Calculate time in range, below range, and above range
+    if (data->glucose_value < 70) {
+        stats->time_below_range++;
+    } else if (data->glucose_value > 180) {
+        stats->time_above_range++;
+    } else {
+        stats->time_in_range++;
+    }
+
+    // Update average glucose
+    int total_readings = stats->time_in_range + stats->time_below_range + stats->time_above_range;
+    if (total_readings > 0) {
+        double prev_avg = stats->avg_glucose;
+        stats->avg_glucose = ((stats->avg_glucose * (total_readings - 1)) + data->glucose_value) / total_readings;
+
+        // Update sum of squared differences for standard deviation calculation
+        if (total_readings > 1) {
+            stats->sum_squared_diff += (data->glucose_value - prev_avg) * (data->glucose_value - stats->avg_glucose);
+        }
+    }
     
+    return 0;
 }
 
 /**
@@ -44,6 +76,29 @@ int update_glucose_statistics() {
  * @param stats Pointer to the GlucoseStats structure to print.
  * @return 0 on success, -1 on error.
  */
-int print_glucose_statistics() {
+int print_glucose_statistics(const GlucoseStats* stats) {
+    if (stats == NULL) return -1;
+
+    int total_readings = stats->time_in_range + stats->time_below_range + stats->time_above_range;
     
+    printf("\n--- Glucose Statistics ---\n");
+    
+    if (total_readings > 0) {
+        double tir_percent = (double)stats->time_in_range / total_readings * 100.0;
+        double tbr_percent = (double)stats->time_below_range / total_readings * 100.0;
+        double tar_percent = (double)stats->time_above_range / total_readings * 100.0;
+        double variability = (total_readings > 1) ? sqrt(stats->sum_squared_diff / (total_readings - 1)) : 0.0;
+        
+        printf("Time in Range: %.2f%%\n", tir_percent);
+        printf("Time Below Range: %.2f%%\n", tbr_percent);
+        printf("Time Above Range: %.2f%%\n", tar_percent);
+        printf("Average Glucose: %.2f mg/dL\n", stats->avg_glucose);
+        printf("Glucose Variability: %.2f\n", variability);
+    } else {
+        printf("No data available yet\n");
+    }
+    
+    printf("---------------------------\n\n");
+    
+    return 0;
 }

@@ -26,7 +26,7 @@ typedef struct {
  * @param stats Pointer to the GlucoseStats structure to initialize.
  * @return 0 on success, -1 on error.
  */
-int initialize_glucose_statistics();
+int initialize_glucose_statistics(GlucoseStats* stats);
 
 /**
  * @brief Updates the glucose statistics with new data.
@@ -38,7 +38,7 @@ int initialize_glucose_statistics();
  * @param data Pointer to the GeneratedData structure containing new data.
  * @return 0 on success, -1 on error.
  */
-int update_glucose_statistics();
+int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data);
 
 /**
  * @brief Prints the glucose statistics to the terminal.
@@ -49,6 +49,6 @@ int update_glucose_statistics();
  * @param stats Pointer to the GlucoseStats structure to print.
  * @return 0 on success, -1 on error.
  */
-int print_glucose_statistics();
+int print_glucose_statistics(const GlucoseStats* stats);
 
 #endif // ANALYSIS_H
