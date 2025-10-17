@@ -8,8 +8,8 @@ This workshop demonstrates how to use GitHub Copilot effectively for C programmi
 
 ## Lab Structure
 
-- **lab_1/** - Code Repository exploration, inline code compleation, agent mode, code review and pull request summary
-- **lab_2/** - Complete system with alarm functionality, pull request summary and review
+- **lab_1/** - Code Repository exploration, inline code compleation, agent mode, code enhancements, code review and pull request summary
+- **lab_2/** - Debugging with Copilot, Complete system with alarm functionality, pull request summary and review
 - **lab_3/** - Creating unittest with copilot and code repository blueprint
 
 ## Getting Started
