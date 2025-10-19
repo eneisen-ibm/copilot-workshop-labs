@@ -4,6 +4,8 @@
 This lab builds upon Lab 1 and focuses on advanced GitHub Copilot features including debugging, pull request workflows, and agent mode. You'll debug analysis functions, implement alarm systems, and practice collaborative development with AI assistance.
 
 ## Setup Instructions
+- Find the code for the coding challengde in the `challenge` folder. 
+- Finde the solution to the coding challende in the `solution` folder.
 
 ### Prerequisites
 - Completed Lab 1 with working glucose monitoring system

@@ -47,6 +47,9 @@ Example commit messages:
 
 ## Lab Tasks
 
+- Find the code for the coding challengde in the `challenge` folder. 
+- Finde the solution to the coding challende in the `solution` folder.
+
 ### Task 1: Repository Exploration and Explanation
 **Objective**: Understand the codebase structure and architecture
 
