@@ -13,7 +13,7 @@ dist/
 
 # Executables
 data_generator
-vitals_cli
+test_alarm
 
 # IDE and Editor files
 .vscode/
