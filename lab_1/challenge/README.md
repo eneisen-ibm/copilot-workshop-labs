@@ -81,6 +81,11 @@ Example commit messages:
 4. **Ensure glucose threshold values are configurable** in `config.c`
    - Low threshold (default: 70 mg/dL)
    - High threshold (default: 180 mg/dL)
+5. **Implement comprehensive error handling**:
+   - Validate input parameters (NULL pointer checks)
+   - Handle edge cases (division by zero, invalid data ranges)
+   - Return appropriate error codes and status messages
+   - Use Copilot to suggest defensive programming practices
 
 **Implementation Tips**:
 - **Step 1**: Make a plan - understand what each function should do
@@ -101,22 +106,6 @@ Example commit messages:
 2. **Full Changes Review**:
    - Use GitHub Copilot to review all uncommitted changes
    - Address any suggestions for code quality, documentation, or best practices
-
-### Task 5: Pull Request Summary
-**Objective**: Create a comprehensive PR summary using Copilot
-
-1. **Create a pull request in the web browser**
-2. **Use Copilot to generate a detailed PR summary** that includes:
-   - What functionality was implemented
-   - Key changes made to each file
-   - Testing instructions
-
-### Task 6: Pull Request Review Process
-**Objective**: Experience AI-assisted code review
-
-1. **Add GitHub Copilot as a reviewer** to your pull request
-2. **Review Copilot's feedback** and make necessary adjustments
-3. **Understand the collaborative review process** with AI assistance
 
 ## Expected Outcomes
 After completing this lab, the system will:
@@ -213,3 +202,4 @@ The system uses configurable parameters that you'll implement in `config.c`:
 - Creating professional code documentation
 - Practicing AI-assisted code review workflows
 - Working with configurable parameters and thresholds
+- **Implementing robust error handling and input validation**
