@@ -37,6 +37,7 @@ docs/xml/
 *_copy/
 *_backup/
 savefiles/
+lab
 test
 
 # OS specific files
