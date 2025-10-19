@@ -1,32 +1,130 @@
-# Lab: Glucose Monitoring System
+# Lab 1: Glucose Monitoring System - GitHub Copilot Workshop
 
 ## Overview
-This program simulates a glucose monitoring device that generates synthetic glucose data in real-time and provides comprehensive analysis including statistics, visualizations, and alarm monitoring.
+This lab guides you through building a glucose monitoring system using GitHub Copilot. You'll explore code structure, complete functions, and learn code review workflows while developing a real-time glucose data analysis application.
 
-## Features
+## Setup Instructions
 
-### 1. **Real-Time Glucose Data Generation**
-   - Generates glucose readings every 2 seconds
-   - Includes timestamps and glucose values in mg/dL
-   - Maintains 24-hour glucose history
-   - Simulates realistic anomalies (hypoglycemia and hyperglycemia)
+### Repository Setup
 
-### 2. **Statistical Analysis**
-   - **Time in Range (TIR)**: Percentage of readings in target range (70-180 mg/dL)
-   - **Time Below Range (TBR)**: Percentage below 70 mg/dL
-   - **Time Above Range (TAR)**: Percentage above 180 mg/dL
-   - **Average Glucose**: Running average of all readings
-   - **Glucose Variability**: Standard deviation of glucose values
+1. **Create your own repository from the template**
+   - Click "Use this template" → "Create a new repository" (public or private is fine)
 
-### 3. **Alarm System**
-   - **Hypoglycemia Alarm**: Glucose < 70 mg/dL
-   - **Hyperglycemia Alarm**: Glucose > 180 mg/dL
-   - **Rapid Change Detection**: Sudden glucose fluctuations
+2. **Clone the code locally**
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo-name>
+   ```
 
-### 4. **Modular Architecture**
-   - Separate modules for data generation, analysis, visualization, and alarms
-   - Configurable thresholds and parameters
-   - Clean separation of concerns
+3. **Make sure Copilot is enabled**
+   - Check the Copilot icon; if prompted, enable Copilot/Copilot Chat
+   - Verify Copilot is working by seeing suggestions as you type
+
+4. **Create a feature branch**
+   ```bash
+   git checkout -b <lab_1<feature>
+   ```
+   Example: `git checkout -b lab_1/glucose-analysis`
+
+5. **Navigate to the lab directory**
+   ```bash
+   cd lab_1/challenge
+   ```
+
+### Development Workflow
+Throughout the lab, commit your progress regularly:
+
+```bash
+git add -A
+git commit -m "Implement: <short summary>"
+git push -u origin HEAD
+```
+
+Example commit messages:
+- `git commit -m "Implement: visualization function with formatted output"`
+- `git commit -m "Complete: glucose analysis functions with configurable thresholds"`
+- `git commit -m "Add: Doxygen documentation to analysis functions"`
+
+## Lab Tasks
+
+### Task 1: Repository Exploration and Explanation
+**Objective**: Understand the codebase structure and architecture
+
+1. **Explore the `lab_1/challenge` folder structure**
+   - Examine the project organization (include/, src/, Makefile)
+   - Understand the modular architecture with separate files for different functionalities
+   - Review the data structures and function signatures in header files
+   - Explain how the components interact (data generation → analysis → visualization)
+
+### Task 2: Simple Code Completion with Inline Chat for Visualization Function
+**Objective**: Use GitHub Copilot's inline chat to enhance the visualization function
+
+1. **Navigate to `src/visualization.c`**
+2. **Use Copilot inline chat to adjust the visualization function**:
+   - Display glucose information in a well-formatted way
+   - Show the timestamp clearly
+   - Display current glucose value in mg/dL
+   - Display the last 30 glucose history values in a readable format
+   - Add comprehensive Doxygen documentation to the function
+
+**Tip**: Use Copilot's inline chat (Ctrl+I / Cmd+I) to describe what you want the function to do.
+
+### Task 3: Edit Mode - Code Completion for Analysis Functions
+**Objective**: Complete the analysis functions using GitHub Copilot's edit mode
+
+1. **Open `src/analysis.c`**
+2. **Complete the functions based on their comment descriptions**:
+   - `initialize_glucose_statistics()` - Initialize all statistics to default values
+   - `update_glucose_statistics()` - Calculate time in range, averages, and variability
+   - `print_glucose_statistics()` - Display formatted statistics output
+3. **Add comprehensive Doxygen documentation** to each function
+4. **Ensure glucose threshold values are configurable** in `config.c`
+   - Low threshold (default: 70 mg/dL)
+   - High threshold (default: 180 mg/dL)
+
+**Implementation Tips**:
+- **Step 1**: Make a plan - understand what each function should do
+- **Step 2**: Execute - use Copilot to implement the functions
+- Time in Range: percentage of readings between low and high thresholds
+- Time Below Range: percentage below low threshold
+- Time Above Range: percentage above high threshold
+- Glucose Variability: calculate standard deviation
+
+### Task 4: Code Review with GitHub Copilot
+**Objective**: Learn to use Copilot for code review and quality improvements
+
+1. **Inline Function Review**:
+   - Select one of your completed functions
+   - Right-click → "Generate Code" → "Review"
+   - Apply Copilot's suggestions for improvements
+
+2. **Full Changes Review**:
+   - Use GitHub Copilot to review all uncommitted changes
+   - Address any suggestions for code quality, documentation, or best practices
+
+### Task 5: Pull Request Summary
+**Objective**: Create a comprehensive PR summary using Copilot
+
+1. **Create a pull request in the web browser**
+2. **Use Copilot to generate a detailed PR summary** that includes:
+   - What functionality was implemented
+   - Key changes made to each file
+   - Testing instructions
+
+### Task 6: Pull Request Review Process
+**Objective**: Experience AI-assisted code review
+
+1. **Add GitHub Copilot as a reviewer** to your pull request
+2. **Review Copilot's feedback** and make necessary adjustments
+3. **Understand the collaborative review process** with AI assistance
+
+## Expected Outcomes
+After completing this lab, the system will:
+- Generate real-time glucose data every 2 seconds
+- Calculate and display comprehensive glucose statistics
+- Show formatted visualization of current readings and history
+- Use configurable threshold values for glucose ranges
+- Demonstrate proper code documentation and review practices
 
 ## Usage
 
@@ -68,45 +166,50 @@ ALARM: Hyperglycemia detected! Glucose value: 210.5 mg/dL
 ```
 ## Project Structure
 ```
-lab/
+lab_1/challenge/
 ├── Makefile               # Build configuration
 ├── README.md              # Project documentation
 ├── include/
 │   ├── data_generator.h   # Header for glucose data generation
-│   ├── analysis.h         # Header for statistical analysis
-│   ├── visualization.h    # Header for data visualization
-│   ├── alarm.h           # Header for alarm system
+│   ├── analysis.h         # Header for statistical analysis (TO COMPLETE)
+│   ├── visualization.h    # Header for data visualization (TO ENHANCE)
 │   ├── config.h          # Header for configuration management
 │   └── controller.h      # Header for main controller logic
 ├── src/
 │   ├── data_generator.c   # Glucose data generation implementation
-│   ├── analysis.c         # Statistical analysis implementation
-│   ├── visualization.c    # Data visualization implementation
-│   ├── alarm.c           # Alarm system implementation
+│   ├── analysis.c         # Statistical analysis (TO COMPLETE)
+│   ├── visualization.c    # Data visualization (TO ENHANCE)
 │   ├── config.c          # Configuration management
 │   ├── controller.c      # Main controller logic
 │   └── main.c            # Program entry point
 └── obj/                  # Compiled object files (generated)
 ```
 
+## Getting Started
+
+1. **Navigate to the lab directory**:
+   ```bash
+   cd lab_1/challenge
+   ```
+
+2. **Explore the codebase structure** (Task 1)
+
+3. **Start with the visualization function** (Task 2)
+
+4. **Complete the analysis functions** (Task 3)
+
+5. **Review and improve your code** (Task 4-6)
+
 ## Configuration
-The system uses configurable parameters defined in `config.c`:
-- **Hypoglycemia Threshold**: 70 mg/dL
-- **Hyperglycemia Threshold**: 180 mg/dL
-- **Rapid Change Threshold**: 30 mg/dL
+The system uses configurable parameters that you'll implement in `config.c`:
+- **Glucose Low Threshold**: 70 mg/dL (configurable)
+- **Glucose High Threshold**: 180 mg/dL (configurable)
 - **Update Interval**: 2 seconds
 
-## Technical Details
-- **Language**: C99
-- **Build System**: Make
-- **Documentation**: Doxygen-style comments
-- **Error Handling**: Consistent return codes (0 for success, -1 for error)
-- **Memory Management**: Stack-allocated structures, no dynamic allocation
-
-## Development Notes
-This project demonstrates:
-- Modular C programming with clean separation of concerns
-- Real-time data simulation and processing
-- Statistical analysis implementation
-- Configurable alarm systems
-- Professional code documentation and structure
+## Key Learning Objectives
+- Understanding modular C programming architecture
+- Using GitHub Copilot for code completion and enhancement
+- Implementing statistical analysis algorithms
+- Creating professional code documentation
+- Practicing AI-assisted code review workflows
+- Working with configurable parameters and thresholds

@@ -12,6 +12,28 @@ This workshop demonstrates how to use GitHub Copilot effectively for C programmi
 - **lab_2/** - Debugging with Copilot, Complete system with alarm functionality, pull request summary and review
 - **lab_3/** - Creating unittest with copilot and code repository blueprint
 
+## Setup Instructions
+
+### Prerequisites
+- GitHub account with Copilot access
+- Git installed locally
+- VS Code or GitHub Codespaces
+
+### Repository Setup
+
+1. **Create your own repository from the template**
+   - Click "Use this template" → "Create a new repository" (public or private is fine)
+
+2. **Clone the code locally**
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo-name>
+   ```
+
+3. **Make sure Copilot is enabled**
+   - Check the Copilot icon; if prompted, enable Copilot/Copilot Chat
+   - Verify Copilot is working by seeing suggestions as you type
+
 ## Getting Started
 
 Each lab folder contains its own Makefile and README with specific instructions. To build and run any lab:
