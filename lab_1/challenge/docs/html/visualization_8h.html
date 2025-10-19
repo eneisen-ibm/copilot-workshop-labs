@@ -100,20 +100,20 @@ $(function(){initNavTree('visualization_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a73d59ac4bc4d4f6f6bff85aa395a011e" id="r_a73d59ac4bc4d4f6f6bff85aa395a011e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73d59ac4bc4d4f6f6bff85aa395a011e">print_glucose_data</a> (const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
-<tr class="memdesc:a73d59ac4bc4d4f6f6bff85aa395a011e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the glucose data to the terminal.  <br /></td></tr>
+<tr class="memitem:a9fec0e944119f5a1660c159e54fbec66" id="r_a9fec0e944119f5a1660c159e54fbec66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fec0e944119f5a1660c159e54fbec66">print_glucose_data</a> (const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
+<tr class="memdesc:a9fec0e944119f5a1660c159e54fbec66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the glucose data to the terminal.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for glucose data visualization functions. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a73d59ac4bc4d4f6f6bff85aa395a011e" name="a73d59ac4bc4d4f6f6bff85aa395a011e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73d59ac4bc4d4f6f6bff85aa395a011e">&#9670;&#160;</a></span>print_glucose_data()</h2>
+<a id="a9fec0e944119f5a1660c159e54fbec66" name="a9fec0e944119f5a1660c159e54fbec66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fec0e944119f5a1660c159e54fbec66">&#9670;&#160;</a></span>print_glucose_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_glucose_data </td>
+          <td class="memname">int print_glucose_data </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
@@ -122,20 +122,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints the glucose data to the terminal. </p>
-<p>Displays the current glucose data, including the timestamp, glucose value, trend, and glucose history.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure to print.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This function displays the current glucose data, including the timestamp, glucose value, trend, and glucose history.</p>
+<p>Displays the current glucose data, including the timestamp, glucose value, and glucose history.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure to print. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>

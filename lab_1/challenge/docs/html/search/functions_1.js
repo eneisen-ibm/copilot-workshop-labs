@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['format_5fglucose_5fdata_5fas_5fcsv_0',['format_glucose_data_as_csv',['../data__generator_8c.html#a3473b448e253be3581035fadc6710cb6',1,'format_glucose_data_as_csv(const GeneratedData *data, char *buffer, size_t buffer_size):&#160;data_generator.c'],['../data__generator_8h.html#a3473b448e253be3581035fadc6710cb6',1,'format_glucose_data_as_csv(const GeneratedData *data, char *buffer, size_t buffer_size):&#160;data_generator.c']]]
+  ['generate_5fand_5fdisplay_5fdata_0',['generate_and_display_data',['../controller_8c.html#a02f92e66c180555c9388e682f30cdbfe',1,'controller.c']]],
+  ['generate_5fglucose_5fdata_1',['generate_glucose_data',['../data__generator_8c.html#a28fea523d53728ef87e76684f9cb1600',1,'generate_glucose_data(GeneratedData *data):&#160;data_generator.c'],['../data__generator_8h.html#a28fea523d53728ef87e76684f9cb1600',1,'generate_glucose_data(GeneratedData *data):&#160;data_generator.c']]]
 ];

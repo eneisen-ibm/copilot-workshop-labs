@@ -102,63 +102,22 @@ $(function(){initNavTree('data__generator_8c.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af80c0984270186e1a44ebde323614cc1" id="r_af80c0984270186e1a44ebde323614cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af80c0984270186e1a44ebde323614cc1">initialize_data_generator</a> (void)</td></tr>
-<tr class="memdesc:af80c0984270186e1a44ebde323614cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the data generator by seeding the random number generator.  <br /></td></tr>
-<tr class="memitem:ad1ba7bcff88c473323c072b2c1674548" id="r_ad1ba7bcff88c473323c072b2c1674548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1ba7bcff88c473323c072b2c1674548">generate_glucose_data</a> (<a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
-<tr class="memdesc:ad1ba7bcff88c473323c072b2c1674548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new set of glucose data and updates the glucose history.  <br /></td></tr>
-<tr class="memitem:a3473b448e253be3581035fadc6710cb6" id="r_a3473b448e253be3581035fadc6710cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3473b448e253be3581035fadc6710cb6">format_glucose_data_as_csv</a> (const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data, char *buffer, size_t buffer_size)</td></tr>
-<tr class="memdesc:a3473b448e253be3581035fadc6710cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the glucose data as a CSV string.  <br /></td></tr>
-<tr class="memitem:a808e5584d7de4bdb709b1b3638767966" id="r_a808e5584d7de4bdb709b1b3638767966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a808e5584d7de4bdb709b1b3638767966">simulate_anomalies</a> (<a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
-<tr class="memdesc:a808e5584d7de4bdb709b1b3638767966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates anomalies in the glucose data.  <br /></td></tr>
+<tr class="memitem:a9f7f58bd6e5a07ce628b75ffa8decaf1" id="r_a9f7f58bd6e5a07ce628b75ffa8decaf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f7f58bd6e5a07ce628b75ffa8decaf1">initialize_data_generator</a> (void)</td></tr>
+<tr class="memdesc:a9f7f58bd6e5a07ce628b75ffa8decaf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the data generator by seeding the random number generator.  <br /></td></tr>
+<tr class="memitem:a28fea523d53728ef87e76684f9cb1600" id="r_a28fea523d53728ef87e76684f9cb1600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28fea523d53728ef87e76684f9cb1600">generate_glucose_data</a> (<a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
+<tr class="memdesc:a28fea523d53728ef87e76684f9cb1600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new set of glucose data and updates the glucose history.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains functions for generating glucose data and simulating anomalies. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a3473b448e253be3581035fadc6710cb6" name="a3473b448e253be3581035fadc6710cb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3473b448e253be3581035fadc6710cb6">&#9670;&#160;</a></span>format_glucose_data_as_csv()</h2>
+<a id="a28fea523d53728ef87e76684f9cb1600" name="a28fea523d53728ef87e76684f9cb1600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28fea523d53728ef87e76684f9cb1600">&#9670;&#160;</a></span>generate_glucose_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void format_glucose_data_as_csv </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>buffer_size</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Formats the glucose data as a CSV string. </p>
-<p>This function converts the glucose data into a CSV format string for easy storage or transmission.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure containing the data. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Buffer to store the formatted CSV string. </td></tr>
-    <tr><td class="paramname">buffer_size</td><td>Size of the buffer. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad1ba7bcff88c473323c072b2c1674548" name="ad1ba7bcff88c473323c072b2c1674548"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1ba7bcff88c473323c072b2c1674548">&#9670;&#160;</a></span>generate_glucose_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void generate_glucose_data </td>
+          <td class="memname">int generate_glucose_data </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
@@ -168,24 +127,25 @@ Functions</h2></td></tr>
 
 <p>Generates a new set of glucose data and updates the glucose history. </p>
 <p>Generates a new set of glucose data.</p>
-<p>This function generates a random glucose value, a trend, and updates the glucose history array by shifting older values and adding the new value at the beginning.</p>
+<p>This function generates a random glucose value and updates the glucose history array by shifting older values and adding the new value at the beginning.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure to populate. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>
-<a id="af80c0984270186e1a44ebde323614cc1" name="af80c0984270186e1a44ebde323614cc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af80c0984270186e1a44ebde323614cc1">&#9670;&#160;</a></span>initialize_data_generator()</h2>
+<a id="a9f7f58bd6e5a07ce628b75ffa8decaf1" name="a9f7f58bd6e5a07ce628b75ffa8decaf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f7f58bd6e5a07ce628b75ffa8decaf1">&#9670;&#160;</a></span>initialize_data_generator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void initialize_data_generator </td>
+          <td class="memname">int initialize_data_generator </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -194,33 +154,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the data generator by seeding the random number generator. </p>
-<p>Initializes the data generator. </p>
-
-</div>
-</div>
-<a id="a808e5584d7de4bdb709b1b3638767966" name="a808e5584d7de4bdb709b1b3638767966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a808e5584d7de4bdb709b1b3638767966">&#9670;&#160;</a></span>simulate_anomalies()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void simulate_anomalies </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Simulates anomalies in the glucose data. </p>
-<p>This function introduces random anomalies such as hyperglycemia, hypoglycemia, and rapid glucose changes to simulate real-world scenarios.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure to modify. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Initializes the data generator.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>
