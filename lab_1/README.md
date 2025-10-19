@@ -78,6 +78,7 @@ Example commit messages:
    - `update_glucose_statistics()` - Calculate time in range, averages, and variability
    - `print_glucose_statistics()` - Display formatted statistics output
 3. **Add comprehensive Doxygen documentation** to each function
+   - Update the documentation with executing `doxygen Doxyfile` and review it by opening `docs/html/index.html`
 4. **Ensure glucose threshold values are configurable** in `config.c`
    - Low threshold (default: 70 mg/dL)
    - High threshold (default: 180 mg/dL)
