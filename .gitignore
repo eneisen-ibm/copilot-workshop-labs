@@ -37,8 +37,8 @@ docs/xml/
 *_copy/
 *_backup/
 savefiles/
-lab
 test
+lab_full
 
 # OS specific files
 Thumbs.db
