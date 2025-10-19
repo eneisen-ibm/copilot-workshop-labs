@@ -69,7 +69,7 @@ Example commit messages:
 
 **Tip**: Use Copilot's inline chat (Ctrl+I / Cmd+I) to describe what you want the function to do.
 
-### Task 3: Edit Mode - Code Completion for Analysis Functions
+### Task 3: Agent Mode - Code Completion for Analysis Functions
 **Objective**: Complete the analysis functions using GitHub Copilot's edit mode
 
 1. **Open `src/analysis.c`**
@@ -88,6 +88,7 @@ Example commit messages:
    - Use Copilot to suggest defensive programming practices
 
 **Implementation Tips**:
+- Use the paper clip symbol to add context to the agent to make context secific, for example all "Open Editors" to select all open files.
 - **Step 1**: Make a plan - understand what each function should do
 - **Step 2**: Execute - use Copilot to implement the functions
 - Time in Range: percentage of readings between low and high thresholds
