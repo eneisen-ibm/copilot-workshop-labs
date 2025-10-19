@@ -44,9 +44,9 @@ int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data, co
     if (stats == NULL || data == NULL || config == NULL) return -1;
 
     // Calculate time in range, below range, and above range using config thresholds
-    if (data->glucose_value < config->hypoglycemia_threshold) {
+    if (data->glucose_value <= config->hypoglycemia_threshold) {
         stats->time_below_range++;
-    } else if (data->glucose_value > config->hyperglycemia_threshold) {
+    } else if (data->glucose_value >= config->hyperglycemia_threshold) {
         stats->time_above_range++;
     } else {
         stats->time_in_range++;

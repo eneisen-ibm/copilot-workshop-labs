@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -pedantic -g -O2
+CFLAGS = -Wall -Wextra -std=c99 -g -O2
 INCLUDES = -Iinclude
 
 # Directories
