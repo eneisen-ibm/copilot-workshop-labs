@@ -294,6 +294,23 @@ Follow-up prompts in the same chat conversation will have access to the same spa
    - Evaluate suggestion relevance
    - Document which instructions work best
 
+### Task 7: Generate Advanced Real-Time CGM System Template
+**Objective**: Use GitHub Copilot to kickstart a complete production-ready project template
+
+This demonstrates how Copilot can rapidly scaffold enterprise-grade architectures from a well-crafted prompt.
+
+1. **Open `ADVANCED_PROJECT_PROMPT.md`** and review the comprehensive prompt
+
+2. **Let Copilot generate** a complete real-time CGM system with:
+   - Python/FastAPI backend with BLE sensor integration
+   - ML-based glucose prediction
+   - Real-time alerts and WebSocket support
+   - PostgreSQL + TimescaleDB for time-series data
+   - Docker/Kubernetes deployment configs
+   - Comprehensive tests and documentation
+
+**Key Takeaway**: AI can scaffold complex, production-ready architectures in minutes, demonstrating the evolution from simple C prototypes to enterprise systems.
+
 ## Expected Outcomes
 After completing this lab, you will have:
 - Created and managed feature branches for development
@@ -305,6 +322,8 @@ After completing this lab, you will have:
 - Experimented with and optimized custom Copilot instructions
 - Enhanced repository management through AI-assisted workflows
 - Demonstrated professional development practices with version control
+- Generated a complete production-ready project template using Copilot
+
 
 ## Usage
 
@@ -420,6 +439,8 @@ lab_3/challenge/
 
 7. **Experiment with custom instructions** (Task 6)
 
+8. **Generate advanced real-time CGM system template** (Task 7)
+
 ## Configuration
 The system uses configurable parameters defined in `config.c`:
 - **Hypoglycemia Threshold**: 70 mg/dL (configurable)
@@ -435,6 +456,9 @@ The system uses configurable parameters defined in `config.c`:
 - Experimenting with and optimizing custom Copilot instructions
 - **Advanced GitHub Copilot agent mode capabilities**
 - Professional software development and version control practices
+- **Using Copilot to scaffold complete production-ready architectures**
+- **Evaluating and validating AI-generated code for safety-critical systems**
+- **Understanding the evolution from prototypes to enterprise systems**
 
 ## Technical Details
 - **Language**: C99
