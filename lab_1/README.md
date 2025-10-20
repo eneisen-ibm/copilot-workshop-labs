@@ -70,7 +70,7 @@ Example commit messages:
    - Display the last 30 glucose history values in a readable format
    - Add comprehensive Doxygen documentation to the function
 
-**Tip**: Use Copilot's inline chat (Ctrl+I / Cmd+I) to describe what you want the function to do.
+**Tip**: Use Copilot's inline chat (Ctrl+I / Cmd+I) to describe what you want the function to do or Place curser close to the function -> right click -> open inline chat. 
 
 ### Task 3: Agent Mode - Code Completion for Analysis Functions
 **Objective**: Complete the analysis functions using GitHub Copilot's edit mode
