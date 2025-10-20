@@ -1,6 +1,6 @@
-# OctoAcme Personas
+# GlucoTech Personas
 
-This document defines typical roles and responsibilities used in OctoAcme project docs and exercises.
+This document defines typical roles and responsibilities used in GlucoTech project docs and exercises.
 
 ---
 

@@ -1,4 +1,4 @@
-# OctoAcme — Project Planning
+# GlucoTech — Project Planning
 
 ## Purpose
 Turn an approved initiative into an actionable plan and backlog for delivery.

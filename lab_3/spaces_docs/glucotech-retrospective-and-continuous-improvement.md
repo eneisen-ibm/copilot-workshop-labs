@@ -1,4 +1,4 @@
-# OctoAcme — Retrospective & Continuous Improvement
+# GlucoTech — Retrospective & Continuous Improvement
 
 ## Purpose
 Capture learnings and convert them into actionable improvements.

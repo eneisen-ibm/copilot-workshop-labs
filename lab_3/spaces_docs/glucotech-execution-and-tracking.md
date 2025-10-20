@@ -1,4 +1,4 @@
-# OctoAcme — Execution & Tracking
+# GlucoTech — Execution & Tracking
 
 ## Purpose
 Guidance for managing day-to-day execution and tracking progress toward project milestones.

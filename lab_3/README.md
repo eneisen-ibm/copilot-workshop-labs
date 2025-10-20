@@ -109,14 +109,14 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
    - "Generate a comprehensive PR summary with all files changed and testing notes"
    - "Add technical details about alarm testing and MCP server setup"
 
-### Task 5: Create your OctoAcme Project Management Hub Copilot Space and Create Issue with it.
+### Task 5: Create your GlucoTech Project Management Hub Copilot Space and Create Issue with it.
 
 1. Navigate to GitHub Copilot Spaces https://github.com/copilot/spaces (ensure you have access to this feature)
 1. Click **Create Space** button
 1. Name your Space:
 
    > ```text
-   > OctoAcme Project Management Hub
+   > GlucoTech Project Management Hub
    > ```
 
 1. Click **Save**
@@ -124,7 +124,7 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
 Add a description:
 
 > ```text
-> Centralizing and democratizing project management knowledge for the OctoAcme organization
+> Centralizing and democratizing project management knowledge for the GlucoTech organization
 > ```
 
 #### Activity: Add instructions to your Copilot Space
@@ -173,7 +173,7 @@ Add a description:
 1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
 1. Verify the repository appears in your sources list
 
-#### Activity: Create an issue in the repository for a README for OctoAcme Project Management Docs
+#### Activity: Create an issue in the repository for a README for GlucoTech Project Management Docs
 
 - Open your Copilot Space you created above. https://github.com/copilot/spaces
 - In the conversation interface prompt the following:
@@ -181,9 +181,9 @@ Add a description:
   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
   >
   > ```prompt
-  > Create an issue in the repository <your-name>/copilot-workshop-labs for a README for OctoAcme Project Management Docs
+  > Create an issue in the repository <your-name>/copilot-workshop-labs for a README for GlucoTech Project Management Docs
   > that has links to all the docs in the docs folder.
-  > - The README should also contain a brief summary of the project management processes used by OctoAcme.
+  > - The README should also contain a brief summary of the project management processes used by GlucoTech.
   > - Make sure README, project management processes summary, and links are in the title of the issue.
   > - Use the "Add Content to Project Management Process Docs" template.
   >  - Which process document do you want to update? "<new document>"
@@ -209,7 +209,7 @@ You can then add this issue to your repository by clicking the **Create** button
 
 For example, you could use either of these two prompts:
 
-   - Using the Copilot space 'OctoAcme Project Management Hub' owned by `your-name`, summarize the implementation plan.
+   - Using the Copilot space 'GlucoTech Project Management Hub' owned by `your-name`, summarize the implementation plan.
    - Summarize the implementation plan from the Copilot space for the checkout flow redesign.
 
 Follow-up prompts in the same chat conversation will have access to the same spaces, without you having to reference it explicitly. 

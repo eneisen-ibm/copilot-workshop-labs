@@ -1,4 +1,4 @@
-# OctoAcme — Project Initiation Guide
+# GlucoTech — Project Initiation Guide
 
 ## Purpose
 Define the initial steps to validate and authorize work, align stakeholders, and create a lightweight plan.

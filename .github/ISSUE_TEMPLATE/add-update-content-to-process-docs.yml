@@ -9,14 +9,14 @@ body:
       label: "Which process document do you want to update? (If this is a new document, select '<new document>')"
       description: "Select the program management process document you want to add content to. If this is a new process doc, choose '<new document>'."
       options:
-        - octoacme-project-management-overview.md
-        - octoacme-project-initiation.md
-        - octoacme-project-planning.md
-        - octoacme-execution-and-tracking.md
-        - octoacme-risks-and-communication.md
-        - octoacme-release-and-deployment.md
-        - octoacme-retrospective-and-continuous-improvement.md
-        - octoacme-roles-and-personas.md
+        - GlucoTech-project-management-overview.md
+        - GlucoTech-project-initiation.md
+        - GlucoTech-project-planning.md
+        - GlucoTech-execution-and-tracking.md
+        - GlucoTech-risks-and-communication.md
+        - GlucoTech-release-and-deployment.md
+        - GlucoTech-retrospective-and-continuous-improvement.md
+        - GlucoTech-roles-and-personas.md
         - <new document>
     validations:
       required: true

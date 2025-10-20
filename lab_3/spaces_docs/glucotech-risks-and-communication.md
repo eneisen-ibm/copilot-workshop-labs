@@ -1,4 +1,4 @@
-# OctoAcme — Risk Management & Communication
+# GlucoTech — Risk Management & Communication
 
 ## Purpose
 Explain how to identify, manage, and communicate risks and dependencies.

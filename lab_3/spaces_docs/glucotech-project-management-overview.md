@@ -1,7 +1,7 @@
-# OctoAcme Project Management Overview
+# GlucoTech Project Management Overview
 
 ## Purpose
-Provide a concise, shareable introduction to how OctoAcme runs projects so new teammates can quickly understand our approach, roles, and key artifacts.
+Provide a concise, shareable introduction to how GlucoTech runs projects so new teammates can quickly understand our approach, roles, and key artifacts.
 
 ## Scope
 Applies to all cross-functional projects that deliver product features, services, or integrations.

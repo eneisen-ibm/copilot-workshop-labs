@@ -1,7 +1,7 @@
-# OctoAcme — Release & Deployment Guide
+# GlucoTech — Release & Deployment Guide
 
 ## Purpose
-Standardize how OctoAcme releases features to production to reduce risk and improve observability.
+Standardize how GlucoTech releases features to production to reduce risk and improve observability.
 
 ## Release Types
 - Patch: hotfixes addressing critical production issues
