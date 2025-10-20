@@ -121,30 +121,24 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
 
 1. Click **Save**
 
-   <img width="50%" height="50%" alt="Copilot Space Create Space" src="https://github.com/user-attachments/assets/0dcc4d78-1ee0-43cf-85c8-c1d0137aceb0" />
-
 Add a description:
 
 > ```text
 > Centralizing and democratizing project management knowledge for the OctoAcme organization
 > ```
 
-   <img width="50%" height="50%" alt="Copilot Spaces description" src="https://github.com/user-attachments/assets/5826b4bc-a40b-4705-b36a-66b234c2c07d" />
-
 #### ⌨️ Activity: Add instructions to your Copilot Space
 
 - In your newly created Copilot Space, look for the **Instructions** button
 - Add the following instructions to provide context about the repository and its purpose
 
-  <img width="50%" height="50%" alt="Copilot Spaces Instructions" src="https://github.com/user-attachments/assets/547cdbf9-9238-42af-a06b-7bb168207ec2" />
-  <img width="50%" height="50%" alt="Copilot Spaces Instructions detail" src="https://github.com/user-attachments/assets/628b8534-5f14-48ba-89dc-16eec79617ea" />
 
 - Click **Save**
 
   > ```markdown
   > ## Program process documents
   >
-  > - Stored in `docs/`
+  > - Stored in `spaces_docs/`
   >
   > ### Purpose of this Copilot Space
   >
@@ -179,10 +173,6 @@ Add a description:
 1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
 1. Verify the repository appears in your sources list
 
-  <img width="30%" height="30%" alt="Add sources" src="https://github.com/user-attachments/assets/05268c3f-5270-4e60-bc87-69fc27b1df72" />
-  <img width="30%" height="30%" alt="Add sources repository" src="https://github.com/user-attachments/assets/83725fcc-eb0d-4478-ba88-8de0cd8a6732" />
-  <img width="30%" height="30%" alt="Add sources repository files" src="https://github.com/user-attachments/assets/f3e9c65a-1446-4f1f-a84f-10f893d0e22e" />
-
 #### ⌨️ Activity: Create an issue in the repository for a README for OctoAcme Project Management Docs
 
 - Open your Copilot Space you created above. https://github.com/copilot/spaces
@@ -202,20 +192,6 @@ Add a description:
 
 You can then add this issue to your repository by clicking the **Create** button.
 
-<details>
-<summary> 📷 Show screenshot of the issue draft</summary>
-
-<img width="50%" height="50%" alt="README issue drafted" src="https://github.com/user-attachments/assets/fd324605-a02b-4d4a-a87f-06db9339bb44" />
-
-</details>
-You can copy or open the link in a new tab to see the newly created issue
-
-<details>
-<summary> 📷 Show screenshot of the created issue</summary>
-
-<img width="50%" height="50%" alt="README issue created" src="https://github.com/user-attachments/assets/c4be58b8-edbf-463a-be49-8ad184d59617" />
-
-</details>
 
 ### Task 5: Use Copilot Spaces in VS Code
 
