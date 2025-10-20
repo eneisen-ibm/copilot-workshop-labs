@@ -94,6 +94,7 @@ make clean
 - Medical device alarm implementation
 - Advanced code review practices
 - Statistical error identification
+- Unit testing for medical devices
 
 **Deliverables**:
 - Fixed glucose statistics calculations
@@ -109,18 +110,17 @@ make clean
 **Focus**: Unit testing, MCP integration, simple feature implementation, and advanced Copilot workflows
 
 **Key Skills**:
-- Unit testing for medical devices
 - GitHub MCP server integration
-- **Simple trend indicator development**
-- **Basic data visualization enhancements**
+- Simple trend indicator development
+- Basic data visualization enhancements
 - Automated pull request creation
 - Custom instruction optimization
 - Professional testing practices
 
 **Deliverables**:
 - Comprehensive unit test suite
-- **Glucose trend display with arrows**
-- **Enhanced data visualization**
+- Glucose trend display with arrows
+- Enhanced data visualization
 - MCP-enhanced development workflow
 - Automated repository management
 - Optimized custom instructions
@@ -172,12 +172,12 @@ Medical Device System
 - [ ] Advanced error handling
 - [ ] Code review with Copilot
 - [ ] Professional documentation
+- [ ] Unit test framework creation
 
 ### **Lab 3 Checklist**
-- [ ] Unit test framework creation
 - [ ] GitHub MCP server integration
-- [ ] **Simple glucose trend indicator**
-- [ ] **Trend arrow visualization**
+- [ ] Simple glucose trend indicator
+- [ ] Trend arrow visualization
 - [ ] Automated pull request workflows using MCP
 - [ ] Custom instruction experimentation
 - [ ] Advanced testing strategies
