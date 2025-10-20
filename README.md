@@ -103,21 +103,27 @@ make clean
 
 ---
 
-### **Lab 3: Testing & Integration**
+### **Lab 3: Testing, Feature Development & Integration**
+*Duration: 90-120 minutes*
 
-**Focus**: Unit testing, MCP integration, and advanced Copilot workflows
+**Focus**: Unit testing, MCP integration, simple feature implementation, and advanced Copilot workflows
 
 **Key Skills**:
 - Unit testing for medical devices
 - GitHub MCP server integration
+- **Simple trend indicator development**
+- **Basic data visualization enhancements**
 - Automated pull request creation
 - Custom instruction optimization
 - Professional testing practices
 
 **Deliverables**:
 - Comprehensive unit test suite
+- **Glucose trend display with arrows**
+- **Enhanced data visualization**
 - MCP-enhanced development workflow
 - Automated repository management
+- Optimized custom instructions
 - Optimized custom instructions
 
 ## 🏗️ Project Architecture
@@ -170,7 +176,9 @@ Medical Device System
 ### **Lab 3 Checklist**
 - [ ] Unit test framework creation
 - [ ] GitHub MCP server integration
-- [ ] Automated pull request workflows
+- [ ] **Simple glucose trend indicator**
+- [ ] **Trend arrow visualization**
+- [ ] Automated pull request workflows using MCP
 - [ ] Custom instruction experimentation
 - [ ] Advanced testing strategies
 - [ ] Quality assurance validation

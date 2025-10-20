@@ -27,32 +27,7 @@ Example commit messages:
 
 ## Lab Tasks
 
-### Task 1: Unit Testing for Alarm Function
-**Objective**: Create comprehensive unit tests for the glucose alarm system
-
-1. **Create unit test framework**:
-   - Set up basic testing infrastructure in `test/` directory
-   - Create `test_alarm.c` with test cases for alarm functionality
-
-2. **Test alarm function scenarios**:
-   - Test hypoglycemia detection (glucose below threshold)
-   - Test hyperglycemia detection (glucose above threshold)
-   - Test rapid change detection
-   - Test edge cases and boundary conditions
-   - Test error handling (NULL pointers, invalid data)
-
-3. **Use Copilot to generate test cases**:
-   - Ask Copilot to suggest comprehensive test scenarios
-   - Generate test data for various glucose conditions
-   - Create assertions for expected alarm outputs
-
-**Testing Requirements**:
-- Cover all alarm conditions (low, high, rapid change)
-- Test boundary values (exactly at thresholds)
-- Validate error handling paths
-- Ensure alarm messages are correct
-
-### Task 2: GitHub MCP Server Integration
+### Task 1: GitHub MCP Server Integration
 **Objective**: Set up and configure GitHub MCP server for enhanced Copilot capabilities
 
 #### 2a. Installation Instructions:
@@ -74,13 +49,15 @@ Example commit messages:
    - Type and select "MCP: List Servers"
    - You should see "github" listed as a configured server
 
-#### 2b. Documentation Reference:
+#### 1b. Documentation Reference:
 For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)
 
-#### 2c. Test MCP Integration:
+#### 1c. Test MCP Integration:
 - Verify Copilot can access repository information
 - Test enhanced context awareness in code suggestions
 - Explore improved pull request and issue integration
+
+### Task 2
 
 ### Task 3: Use Copilot to Check for Existing Pull Requests
 **Objective**: Leverage MCP integration to manage repository workflows

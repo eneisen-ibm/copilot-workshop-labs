@@ -89,7 +89,32 @@ Example commit messages:
 - Only check rapid changes when previous data is available
 - Follow the existing code style and documentation patterns
 
-### Task 6: Comprehensive Code Review
+### Task 6: Unit Testing for Alarm Function
+**Objective**: Create comprehensive unit tests for the glucose alarm system
+
+1. **Create unit test framework**:
+   - Set up basic testing infrastructure in `test/` directory
+   - Create `test_alarm.c` with test cases for alarm functionality
+
+2. **Test alarm function scenarios**:
+   - Test hypoglycemia detection (glucose below threshold)
+   - Test hyperglycemia detection (glucose above threshold)
+   - Test rapid change detection
+   - Test edge cases and boundary conditions
+   - Test error handling (NULL pointers, invalid data)
+
+3. **Use Copilot to generate test cases**:
+   - Ask Copilot to suggest comprehensive test scenarios
+   - Generate test data for various glucose conditions
+   - Create assertions for expected alarm outputs
+
+**Testing Requirements**:
+- Cover all alarm conditions (low, high, rapid change)
+- Test boundary values (exactly at thresholds)
+- Validate error handling paths
+- Ensure alarm messages are correct
+
+### Task 7: Comprehensive Code Review
 **Objective**: Use Copilot for thorough code quality improvement
 
 1. **Use GitHub Copilot to review all uncommitted changes**

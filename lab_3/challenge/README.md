@@ -95,19 +95,83 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
    - Review feedback and suggestions
    - Identify any required changes
 
-### Task 4: Create Pull Request Using Agent Mode
-**Objective**: Use Copilot's agent mode for automated pull request creation
+### Task 4: Implement Glucose Trend Display & Create Pull Request
+**Objective**: Add a simple trend indicator to the system and create a pull request using MCP
 
-1. **Use Copilot Agent Mode to create a comprehensive pull request**:
-   - Summarize all changes from Lab 3
-   - Generate detailed PR description
-   - Include testing instructions
-   - Add appropriate labels and reviewers
+#### 4a. Implement Basic Glucose Trend Display
 
-2. **Agent mode prompts to try**:
-   - "Create a pull request for my Lab 3 changes including unit tests and MCP integration"
-   - "Generate a comprehensive PR summary with all files changed and testing notes"
-   - "Add technical details about alarm testing and MCP server setup"
+**Feature Overview**: Add a trend indicator that shows if glucose is rising, falling, or stable.
+
+**What to Implement**:
+
+1. **Simple Trend Calculation**:
+   - Compare current glucose value with previous reading
+   - Determine if glucose is rising (↑), falling (↓), or stable (→)
+   - Use a simple threshold (e.g., ±5 mg/dL for "stable")
+
+2. **Display Trend Indicator**:
+   - Show trend arrow next to glucose value
+   - Display rate of change in mg/dL
+   - Add trend to the glucose data output
+
+**Implementation Guide**:
+
+**Step 1: Define trend enum** in `include/analysis.h`:
+```c
+typedef enum {
+    TREND_RISING,      // ↑ Glucose increasing
+    TREND_STABLE,      // → Glucose stable
+    TREND_FALLING      // ↓ Glucose decreasing
+} GlucoseTrend;
+```
+
+**Step 2: Add simple trend function** in `src/analysis.c`:
+```c
+/**
+ * @brief Calculate simple glucose trend
+ * 
+ * @param data Pointer to glucose data with history
+ * @return GlucoseTrend indicating direction
+ */
+GlucoseTrend calculate_glucose_trend(const GeneratedData* data);
+```
+
+**Step 3: Update visualization** in `src/visualization.c`:
+- Add trend arrow to glucose data output
+- Show change amount (e.g., "+12 mg/dL")
+
+**Step 4: Use Copilot Agent Mode**:
+- Ask: "Implement a simple glucose trend function that compares current and previous values"
+- Request: "Add trend arrow display to the visualization output"
+
+**Example Output**:
+```
+--- Glucose Data ---
+Timestamp: 2025-10-13T14:30:15Z
+Glucose Value: 145.0 mg/dL ↑ (+12 mg/dL)
+Trend: Rising
+--------------------
+```
+
+#### 4b. Create Pull Request Using MCP Server
+
+1. **Use Copilot Agent Mode to create a pull request**:
+   - Summarize the trend display feature
+   - Generate PR description with clear explanation
+   - Include before/after output examples
+
+2. **Suggested prompt**:
+   ```
+   "Using GitHub MCP, create a pull request for adding glucose trend indicators. 
+   Include: feature description, files modified, and example output showing the 
+   trend arrows."
+   ```
+
+3. **PR Should Include**:
+   - Brief feature overview
+   - Files changed (analysis.h, analysis.c, visualization.c)
+   - Example output with trend indicator
+   - Simple testing notes
 
 ### Task 5: Create your GlucoTech Project Management Hub Copilot Space and Create Issue with it.
 
@@ -232,6 +296,8 @@ Follow-up prompts in the same chat conversation will have access to the same spa
 After completing this lab, you will have:
 - Created comprehensive unit tests for medical device alarm systems
 - Successfully integrated GitHub MCP server with Copilot
+- **Implemented simple glucose trend display feature**
+- **Added trend arrows to enhance data visualization**
 - Mastered automated pull request workflows using agent mode
 - Experimented with and optimized custom Copilot instructions
 - Enhanced repository management through AI-assisted workflows
@@ -261,15 +327,16 @@ make clean
 
 ## Example Output
 
-### Main Program Output
+### Main Program Output (With Trend Display)
 ```
 Starting glucose data generation from controller...
 
 --- Glucose Data ---
 Timestamp: 2025-10-13T14:30:15Z
-Glucose Value: 145.0 mg/dL
+Glucose Value: 145.0 mg/dL ↑ (+12 mg/dL)
+Trend: Rising
 Glucose History (last 24 hours):
-145.0 132.0 98.0 87.0 ...
+145.0 133.0 118.0 105.0 98.0 87.0 ...
 --------------------
 
 --- Glucose Statistics ---
@@ -280,8 +347,16 @@ Average Glucose: 125.30 mg/dL
 Glucose Variability: 35.20
 ---------------------------
 
-ALARM: Hyperglycemia detected! Glucose value: 210.5 mg/dL
 ALARM: Rapid glucose increase detected!
+```
+
+### Main Program Output (Stable Glucose)
+```
+--- Glucose Data ---
+Timestamp: 2025-10-13T14:32:15Z
+Glucose Value: 110.0 mg/dL → (+2 mg/dL)
+Trend: Stable
+--------------------
 ```
 
 ### Unit Test Output
