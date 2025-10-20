@@ -99,7 +99,26 @@ If you are not happy with the results of the inline chat, try Copilots Edit Mode
 - Time Above Range: percentage above high threshold
 - Glucose Variability: calculate standard deviation
 
-### Task 4: Code Review with GitHub Copilot
+### Task 4: Create a comprehensive README file explaining the repo of lab_1
+**Objective**: Document the glucose monitoring system project with professional README documentation
+
+1. **Create a detailed project README**:
+   - Navigate to the root `lab_1/challenge` directory
+   - Use GitHub Copilot to help create a comprehensive `README.md` file
+   - Include project overview and purpose
+   - Document system architecture and component interactions
+   - Explain the glucose monitoring workflow (generation → analysis → visualization)
+   - Add clear build and usage instructions
+   - Include example outputs and expected behavior
+   - Document configuration options and customizable parameters
+
+2. **Use Copilot Chat to enhance documentation**:
+   - Ask Copilot to analyze the entire `lab_1/challenge` codebase
+   - Generate professional technical documentation
+   - Add troubleshooting section and common issues
+   - Include performance considerations and system requirements
+
+### Task 5: Code Review with GitHub Copilot
 **Objective**: Learn to use Copilot for code review and quality improvements
 
 1. **Inline Function Review**:
