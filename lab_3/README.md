@@ -159,19 +159,10 @@ Add a description:
 #### Activity: Add your cloned repository as a source repository to your Copilot Space
 
 1. In your newly created Copilot Space, look for **Add sources** button
-1. Add this exercise repository as a source:
-
-   - Copy and paste your GitHub repository for this exercise called out below.
-   - You can also type the name in the search and it will come up as well or copy/paste the name below.
-
-     > ```text
-     > <your-name>/copilot-workshop-labs
-     > ```
-
-   - This gives Copilot access to the project management documentation and processes in the repository
-
-1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
-1. Verify the repository appears in your sources list
+2. Select `Add files from repository` and search for `eneisen-ibm/copilot-workshop-labs`
+3. Select the `lab_3/spaces_docs` and the `.github/ISSUE_TEMPLATE` folders
+4. Verify the repository appears in your sources list
+5. If you cannot add the files through the `eneisen-ibm/copilot-workshop-labs` repo, just upload them from your local machine
 
 #### Activity: Create an issue in the repository for a README for GlucoTech Project Management Docs
 
@@ -181,7 +172,7 @@ Add a description:
   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
   >
   > ```prompt
-  > Create an issue in the repository <your-name>/copilot-workshop-labs for a README for GlucoTech Project Management Docs
+  > Create an issue in the repository eneisen-ibm/copilot-workshop-labs for a README for GlucoTech Project Management Docs
   > that has links to all the docs in the docs folder.
   > - The README should also contain a brief summary of the project management processes used by GlucoTech.
   > - Make sure README, project management processes summary, and links are in the title of the issue.
