@@ -49,7 +49,7 @@ body:
       label: "Test Scenarios to Cover"
       description: "List specific test scenarios that should be implemented."
       placeholder: |
-        E.g., 
+        E.g.,
         - Test normal glucose range calculations
         - Test boundary conditions (exactly at thresholds)
         - Test error handling with invalid inputs
