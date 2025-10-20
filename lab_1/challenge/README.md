@@ -22,7 +22,7 @@ This lab guides you through building a glucose monitoring system using GitHub Co
 
 4. **Create a feature branch**
    ```bash
-   git checkout -b <lab_1<feature>
+   git checkout -b <lab_1/feature>
    ```
    Example: `git checkout -b lab_1/glucose-analysis`
 
