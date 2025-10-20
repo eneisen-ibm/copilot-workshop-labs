@@ -50,7 +50,8 @@ Example commit messages:
 ### Task 1: Repository Exploration and Explanation
 **Objective**: Understand the codebase structure and architecture
 
-1. **Explore the `lab_1/challenge` folder structure**
+1. **Explore the `lab_1/challenge` folder structure using Copilot Ask Mode**
+   - Example Prompt: `explain the code of the folder lab_1/challenge and provide a directory structure overview`
    - Examine the project organization (include/, src/, Makefile)
    - Understand the modular architecture with separate files for different functionalities
    - Review the data structures and function signatures in header files
@@ -68,6 +69,7 @@ Example commit messages:
    - Add comprehensive Doxygen documentation to the function
 
 **Tip**: Use Copilot's inline chat (Ctrl+I / Cmd+I) to describe what you want the function to do or Place curser close to the function -> right click -> open inline chat. 
+If you are not happy with the results of the inline chat, try Copilots Edit Mode in the chat!
 
 ### Task 3: Agent Mode - Code Completion for Analysis Functions
 **Objective**: Complete the analysis functions using GitHub Copilot's edit mode
