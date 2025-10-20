@@ -27,7 +27,32 @@ Example commit messages:
 
 ## Lab Tasks
 
-### Task 1: GitHub MCP Server Integration
+### Task 1: Unit Testing for Alarm Function
+**Objective**: Create comprehensive unit tests for the glucose alarm system
+
+1. **Create unit test framework**:
+   - Set up basic testing infrastructure in `test/` directory
+   - Create `test_alarm.c` with test cases for alarm functionality
+
+2. **Test alarm function scenarios**:
+   - Test hypoglycemia detection (glucose below threshold)
+   - Test hyperglycemia detection (glucose above threshold)
+   - Test rapid change detection
+   - Test edge cases and boundary conditions
+   - Test error handling (NULL pointers, invalid data)
+
+3. **Use Copilot to generate test cases**:
+   - Ask Copilot to suggest comprehensive test scenarios
+   - Generate test data for various glucose conditions
+   - Create assertions for expected alarm outputs
+
+**Testing Requirements**:
+- Cover all alarm conditions (low, high, rapid change)
+- Test boundary values (exactly at thresholds)
+- Validate error handling paths
+- Ensure alarm messages are correct
+
+### Task 2: GitHub MCP Server Integration
 **Objective**: Set up and configure GitHub MCP server for enhanced Copilot capabilities
 
 #### 2a. Installation Instructions:
@@ -49,15 +74,13 @@ Example commit messages:
    - Type and select "MCP: List Servers"
    - You should see "github" listed as a configured server
 
-#### 1b. Documentation Reference:
+#### 2b. Documentation Reference:
 For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)
 
-#### 1c. Test MCP Integration:
+#### 2c. Test MCP Integration:
 - Verify Copilot can access repository information
 - Test enhanced context awareness in code suggestions
 - Explore improved pull request and issue integration
-
-### Task 2
 
 ### Task 3: Use Copilot to Check for Existing Pull Requests
 **Objective**: Leverage MCP integration to manage repository workflows
@@ -72,19 +95,83 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
    - Review feedback and suggestions
    - Identify any required changes
 
-### Task 4: Create Pull Request Using Agent Mode
-**Objective**: Use Copilot's agent mode for automated pull request creation
+### Task 4: Implement Glucose Trend Display & Create Pull Request
+**Objective**: Add a simple trend indicator to the system and create a pull request using MCP
 
-1. **Use Copilot Agent Mode to create a comprehensive pull request**:
-   - Summarize all changes from Lab 3
-   - Generate detailed PR description
-   - Include testing instructions
-   - Add appropriate labels and reviewers
+#### 4a. Implement Basic Glucose Trend Display
 
-2. **Agent mode prompts to try**:
-   - "Create a pull request for my Lab 3 changes including unit tests and MCP integration"
-   - "Generate a comprehensive PR summary with all files changed and testing notes"
-   - "Add technical details about alarm testing and MCP server setup"
+**Feature Overview**: Add a trend indicator that shows if glucose is rising, falling, or stable.
+
+**What to Implement**:
+
+1. **Simple Trend Calculation**:
+   - Compare current glucose value with previous reading
+   - Determine if glucose is rising (↑), falling (↓), or stable (→)
+   - Use a simple threshold (e.g., ±5 mg/dL for "stable")
+
+2. **Display Trend Indicator**:
+   - Show trend arrow next to glucose value
+   - Display rate of change in mg/dL
+   - Add trend to the glucose data output
+
+**Implementation Guide**:
+
+**Step 1: Define trend enum** in `include/analysis.h`:
+```c
+typedef enum {
+    TREND_RISING,      // ↑ Glucose increasing
+    TREND_STABLE,      // → Glucose stable
+    TREND_FALLING      // ↓ Glucose decreasing
+} GlucoseTrend;
+```
+
+**Step 2: Add simple trend function** in `src/analysis.c`:
+```c
+/**
+ * @brief Calculate simple glucose trend
+ * 
+ * @param data Pointer to glucose data with history
+ * @return GlucoseTrend indicating direction
+ */
+GlucoseTrend calculate_glucose_trend(const GeneratedData* data);
+```
+
+**Step 3: Update visualization** in `src/visualization.c`:
+- Add trend arrow to glucose data output
+- Show change amount (e.g., "+12 mg/dL")
+
+**Step 4: Use Copilot Agent Mode**:
+- Ask: "Implement a simple glucose trend function that compares current and previous values"
+- Request: "Add trend arrow display to the visualization output"
+
+**Example Output**:
+```
+--- Glucose Data ---
+Timestamp: 2025-10-13T14:30:15Z
+Glucose Value: 145.0 mg/dL ↑ (+12 mg/dL)
+Trend: Rising
+--------------------
+```
+
+#### 4b. Create Pull Request Using MCP Server
+
+1. **Use Copilot Agent Mode to create a pull request**:
+   - Summarize the trend display feature
+   - Generate PR description with clear explanation
+   - Include before/after output examples
+
+2. **Suggested prompt**:
+   ```
+   "Using GitHub MCP, create a pull request for adding glucose trend indicators. 
+   Include: feature description, files modified, and example output showing the 
+   trend arrows."
+   ```
+
+3. **PR Should Include**:
+   - Brief feature overview
+   - Files changed (analysis.h, analysis.c, visualization.c)
+   - Example output with trend indicator
+   - Simple testing notes
 
 ### Task 5: Create your GlucoTech Project Management Hub Copilot Space and Create Issue with it.
 
@@ -136,10 +223,19 @@ Add a description:
 #### Activity: Add your cloned repository as a source repository to your Copilot Space
 
 1. In your newly created Copilot Space, look for **Add sources** button
-2. Select `Add files from repository` and search for `eneisen-ibm/copilot-workshop-labs`
-3. Select the `lab_3/spaces_docs` and the `.github/ISSUE_TEMPLATE` folders
-4. Verify the repository appears in your sources list
-5. If you cannot add the files through the `eneisen-ibm/copilot-workshop-labs` repo, just upload them from your local machine
+1. Add this exercise repository as a source:
+
+   - Copy and paste your GitHub repository for this exercise called out below.
+   - You can also type the name in the search and it will come up as well or copy/paste the name below.
+
+     > ```text
+     > <your-name>/skills-scale-institutional-knowledge-using-copilot-spaces
+     > ```
+
+   - This gives Copilot access to the project management documentation and processes in the repository
+
+1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
+1. Verify the repository appears in your sources list
 
 #### Activity: Create an issue in the repository for a README for GlucoTech Project Management Docs
 
@@ -149,7 +245,7 @@ Add a description:
   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
   >
   > ```prompt
-  > Create an issue in the repository eneisen-ibm/copilot-workshop-labs for a README for GlucoTech Project Management Docs
+  > Create an issue in the repository <your-name>/skills-scale-institutional-knowledge-using-copilot-spaces for a README for GlucoTech Project Management Docs
   > that has links to all the docs in the docs folder.
   > - The README should also contain a brief summary of the project management processes used by GlucoTech.
   > - Make sure README, project management processes summary, and links are in the title of the issue.
@@ -200,6 +296,8 @@ Follow-up prompts in the same chat conversation will have access to the same spa
 After completing this lab, you will have:
 - Created comprehensive unit tests for medical device alarm systems
 - Successfully integrated GitHub MCP server with Copilot
+- **Implemented simple glucose trend display feature**
+- **Added trend arrows to enhance data visualization**
 - Mastered automated pull request workflows using agent mode
 - Experimented with and optimized custom Copilot instructions
 - Enhanced repository management through AI-assisted workflows
@@ -229,15 +327,16 @@ make clean
 
 ## Example Output
 
-### Main Program Output
+### Main Program Output (With Trend Display)
 ```
 Starting glucose data generation from controller...
 
 --- Glucose Data ---
 Timestamp: 2025-10-13T14:30:15Z
-Glucose Value: 145.0 mg/dL
+Glucose Value: 145.0 mg/dL ↑ (+12 mg/dL)
+Trend: Rising
 Glucose History (last 24 hours):
-145.0 132.0 98.0 87.0 ...
+145.0 133.0 118.0 105.0 98.0 87.0 ...
 --------------------
 
 --- Glucose Statistics ---
@@ -248,8 +347,16 @@ Average Glucose: 125.30 mg/dL
 Glucose Variability: 35.20
 ---------------------------
 
-ALARM: Hyperglycemia detected! Glucose value: 210.5 mg/dL
 ALARM: Rapid glucose increase detected!
+```
+
+### Main Program Output (Stable Glucose)
+```
+--- Glucose Data ---
+Timestamp: 2025-10-13T14:32:15Z
+Glucose Value: 110.0 mg/dL → (+2 mg/dL)
+Trend: Stable
+--------------------
 ```
 
 ### Unit Test Output

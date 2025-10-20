@@ -191,7 +191,7 @@ Add a description:
 > Centralizing and democratizing project management knowledge for the GlucoTech organization
 > ```
 
-#### ⌨️ Activity: Add instructions to your Copilot Space
+#### Activity: Add instructions to your Copilot Space
 
 - In your newly created Copilot Space, look for the **Instructions** button
 - Add the following instructions to provide context about the repository and its purpose
@@ -220,7 +220,7 @@ Add a description:
   > - Stored in `.github/ISSUE_TEMPLATE/`
   > ```
 
-#### ⌨️ Activity: Add your cloned repository as a source repository to your Copilot Space
+#### Activity: Add your cloned repository as a source repository to your Copilot Space
 
 1. In your newly created Copilot Space, look for **Add sources** button
 1. Add this exercise repository as a source:
@@ -237,7 +237,7 @@ Add a description:
 1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
 1. Verify the repository appears in your sources list
 
-#### ⌨️ Activity: Create an issue in the repository for a README for GlucoTech Project Management Docs
+#### Activity: Create an issue in the repository for a README for GlucoTech Project Management Docs
 
 - Open your Copilot Space you created above. https://github.com/copilot/spaces
 - In the conversation interface prompt the following:
