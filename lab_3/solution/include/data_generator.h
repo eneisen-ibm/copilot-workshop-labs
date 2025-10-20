@@ -5,22 +5,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Structure to hold generated vital signs
+// Structure to hold generated glucose data
 typedef struct {
-    char timestamp[32];
-    int heart_rate;
-    int spo2;
-    double temperature;
-    int systolic_bp;  // Systolic Blood Pressure
-    int diastolic_bp; // Diastolic Blood Pressure
-    int respiratory_rate; // Respiratory Rate
-    double glucose_value; // Current glucose value in mg/dL or mmol/L
-    double glucose_history[24]; // Glucose values over the past 24 hours
+    char timestamp[32];           // ISO timestamp of the reading
+    double glucose_value;         // Current glucose value in mg/dL
+    double glucose_history[30];   // Last 30 glucose values
 } GeneratedData;
 
 /**
  * @file data_generator.h
  * @brief Header file for glucose data generation functions.
+ * 
+ * This module provides functionality to generate realistic glucose data
+ * with simulated anomalies for testing and demonstration purposes.
  */
 
 /**

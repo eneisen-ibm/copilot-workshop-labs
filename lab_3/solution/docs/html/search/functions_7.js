@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simulate_5fanomalies_0',['simulate_anomalies',['../data__generator_8c.html#a808e5584d7de4bdb709b1b3638767966',1,'data_generator.c']]]
+  ['update_5fglucose_5fstatistics_0',['update_glucose_statistics',['../analysis_8c.html#a365fbfb693d3de66599012d67951e64e',1,'update_glucose_statistics(GlucoseStats *stats, const GeneratedData *data, const Config *config):&#160;analysis.c'],['../analysis_8h.html#a365fbfb693d3de66599012d67951e64e',1,'update_glucose_statistics(GlucoseStats *stats, const GeneratedData *data, const Config *config):&#160;analysis.c']]]
 ];

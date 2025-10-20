@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['summarystats_0',['SummaryStats',['../struct_summary_stats.html',1,'']]]
+  ['generateddata_0',['GeneratedData',['../struct_generated_data.html',1,'']]],
+  ['glucosestats_1',['GlucoseStats',['../struct_glucose_stats.html',1,'']]]
 ];
