@@ -127,7 +127,7 @@ Add a description:
 > Centralizing and democratizing project management knowledge for the OctoAcme organization
 > ```
 
-#### ⌨️ Activity: Add instructions to your Copilot Space
+#### Activity: Add instructions to your Copilot Space
 
 - In your newly created Copilot Space, look for the **Instructions** button
 - Add the following instructions to provide context about the repository and its purpose
@@ -156,7 +156,7 @@ Add a description:
   > - Stored in `.github/ISSUE_TEMPLATE/`
   > ```
 
-#### ⌨️ Activity: Add your cloned repository as a source repository to your Copilot Space
+#### Activity: Add your cloned repository as a source repository to your Copilot Space
 
 1. In your newly created Copilot Space, look for **Add sources** button
 1. Add this exercise repository as a source:
@@ -165,7 +165,7 @@ Add a description:
    - You can also type the name in the search and it will come up as well or copy/paste the name below.
 
      > ```text
-     > <your-name>/skills-scale-institutional-knowledge-using-copilot-spaces
+     > <your-name>/copilot-workshop-labs
      > ```
 
    - This gives Copilot access to the project management documentation and processes in the repository
@@ -173,7 +173,7 @@ Add a description:
 1. Select the `docs` and the `.github/ISSUE_TEMPLATE` folders
 1. Verify the repository appears in your sources list
 
-#### ⌨️ Activity: Create an issue in the repository for a README for OctoAcme Project Management Docs
+#### Activity: Create an issue in the repository for a README for OctoAcme Project Management Docs
 
 - Open your Copilot Space you created above. https://github.com/copilot/spaces
 - In the conversation interface prompt the following:
@@ -181,7 +181,7 @@ Add a description:
   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
   >
   > ```prompt
-  > Create an issue in the repository <your-name>/skills-scale-institutional-knowledge-using-copilot-spaces for a README for OctoAcme Project Management Docs
+  > Create an issue in the repository <your-name>/copilot-workshop-labs for a README for OctoAcme Project Management Docs
   > that has links to all the docs in the docs folder.
   > - The README should also contain a brief summary of the project management processes used by OctoAcme.
   > - Make sure README, project management processes summary, and links are in the title of the issue.
