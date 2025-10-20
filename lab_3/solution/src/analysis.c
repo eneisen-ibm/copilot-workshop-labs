@@ -100,3 +100,39 @@ int print_glucose_statistics(const GlucoseStats* stats) {
     
     return 0;
 }
+
+/**
+ * @brief Calculate simple glucose trend
+ * 
+ * Compares current glucose value with previous reading to determine
+ * if glucose is rising, falling, or stable. Uses a threshold of ±5 mg/dL
+ * to determine stability.
+ * 
+ * @param data Pointer to glucose data with history
+ * @return GlucoseTrend indicating direction (RISING, STABLE, or FALLING)
+ */
+GlucoseTrend calculate_glucose_trend(const GeneratedData* data) {
+    if (data == NULL) {
+        return TREND_STABLE; // Default to stable on error
+    }
+    
+    // Compare current value with the most recent previous value
+    // glucose_history[0] is the current value, glucose_history[1] is previous
+    double current_glucose = data->glucose_value;
+    double previous_glucose = data->glucose_history[1];
+    
+    // Calculate the change
+    double change = current_glucose - previous_glucose;
+    
+    // Define stability threshold
+    const double STABILITY_THRESHOLD = 5.0; // mg/dL
+    
+    // Determine trend based on change
+    if (change > STABILITY_THRESHOLD) {
+        return TREND_RISING;
+    } else if (change < -STABILITY_THRESHOLD) {
+        return TREND_FALLING;
+    } else {
+        return TREND_STABLE;
+    }
+}

@@ -1,7 +1,7 @@
 # Lab 3: Glucose Monitoring System - Testing & MCP Integration Workshop
 
 ## Overview
-This lab focuses on advanced GitHub Copilot features including unit testing, MCP (Model Context Protocol) server integration, and automated pull request workflows. You'll learn to test alarm functions, integrate GitHub MCP servers, and experiment with custom Copilot instructions.
+This lab focuses on advanced GitHub Copilot features including MCP (Model Context Protocol) server integration, automated pull request workflows, and feature branch development. You'll learn to integrate GitHub MCP servers, create feature branches, implement new functionality, and experiment with custom Copilot instructions.
 
 ## Setup Instructions
 
@@ -16,46 +16,21 @@ Throughout the lab, commit your progress regularly:
 
 ```bash
 git add -A
-git commit -m "Test: <short summary>"
+git commit -m "Feature: <short summary>"
 git push -u origin HEAD
 ```
 
 Example commit messages:
-- `git commit -m "Add: comprehensive unit tests for alarm function"`
+- `git commit -m "Feature: add glucose trend analysis"`
 - `git commit -m "Configure: GitHub MCP server integration"`
 - `git commit -m "Create: automated pull request using agent mode"`
 
 ## Lab Tasks
 
-### Task 1: Unit Testing for Alarm Function
-**Objective**: Create comprehensive unit tests for the glucose alarm system
-
-1. **Create unit test framework**:
-   - Set up basic testing infrastructure in `test/` directory
-   - Create `test_alarm.c` with test cases for alarm functionality
-
-2. **Test alarm function scenarios**:
-   - Test hypoglycemia detection (glucose below threshold)
-   - Test hyperglycemia detection (glucose above threshold)
-   - Test rapid change detection
-   - Test edge cases and boundary conditions
-   - Test error handling (NULL pointers, invalid data)
-
-3. **Use Copilot to generate test cases**:
-   - Ask Copilot to suggest comprehensive test scenarios
-   - Generate test data for various glucose conditions
-   - Create assertions for expected alarm outputs
-
-**Testing Requirements**:
-- Cover all alarm conditions (low, high, rapid change)
-- Test boundary values (exactly at thresholds)
-- Validate error handling paths
-- Ensure alarm messages are correct
-
-### Task 2: GitHub MCP Server Integration
+### Task 1: GitHub MCP Server Integration
 **Objective**: Set up and configure GitHub MCP server for enhanced Copilot capabilities
 
-#### 2a. Installation Instructions:
+#### 1a. Installation Instructions:
 
 1. **Go to the [GitHub page of the MCP Registry](https://github.com/modelcontextprotocol/servers)**
 
@@ -74,15 +49,15 @@ Example commit messages:
    - Type and select "MCP: List Servers"
    - You should see "github" listed as a configured server
 
-#### 2b. Documentation Reference:
+#### 1b. Documentation Reference:
 For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)
 
-#### 2c. Test MCP Integration:
+#### 1c. Test MCP Integration:
 - Verify Copilot can access repository information
 - Test enhanced context awareness in code suggestions
 - Explore improved pull request and issue integration
 
-### Task 3: Use Copilot to Check for Existing Pull Requests
+### Task 2: Use Copilot to Check for Existing Pull Requests
 **Objective**: Leverage MCP integration to manage repository workflows
 
 1. **Use Copilot Chat to query existing pull requests**:
@@ -95,10 +70,17 @@ For detailed setup instructions, see: [GitHub MCP Server Setup Guide](https://do
    - Review feedback and suggestions
    - Identify any required changes
 
-### Task 4: Implement Glucose Trend Display & Create Pull Request
+### Task 3: Implement Glucose Trend Display & Create Pull Request
 **Objective**: Add a simple trend indicator to the system and create a pull request using MCP
 
-#### 4a. Implement Basic Glucose Trend Display
+**Before Starting**: Create a feature branch for this work to follow professional Git workflow practices:
+```bash
+git checkout -b feature/trend_analysis
+```
+
+Feature branches isolate new development work from the main branch, allowing you to experiment while keeping the main branch stable. Verify you're on the new branch with `git branch --show-current`.
+
+#### 3a. Implement Basic Glucose Trend Display
 
 **Feature Overview**: Add a trend indicator that shows if glucose is rising, falling, or stable.
 
@@ -153,27 +135,47 @@ Trend: Rising
 --------------------
 ```
 
-#### 4b. Create Pull Request Using MCP Server
+#### 3b. Create Pull Request Using MCP Server
 
-1. **Use Copilot Agent Mode to create a pull request**:
+1. **First, push your feature branch to the remote repository**:
+   ```bash
+   git add -A
+   git commit -m "Feature: add glucose trend analysis with visual indicators"
+   git push origin feature/trend_analysis
+   ```
+
+2. **Verify your changes are pushed**:
+   ```bash
+   git status
+   ```
+   You should see "Your branch is up to date with 'origin/feature/trend_analysis'"
+
+3. **Use Copilot Agent Mode to create a pull request**:
    - Summarize the trend display feature
    - Generate PR description with clear explanation
    - Include before/after output examples
 
-2. **Suggested prompt**:
+4. **Suggested prompt for Copilot**:
    ```
-   "Using GitHub MCP, create a pull request for adding glucose trend indicators. 
-   Include: feature description, files modified, and example output showing the 
-   trend arrows."
+   "Create a pull request from feature/trend_analysis to main for adding glucose 
+   trend indicators. Include: feature description, technical details, files modified, 
+   example output showing the trend arrows, benefits, and testing considerations."
    ```
 
-3. **PR Should Include**:
+5. **PR Should Include**:
    - Brief feature overview
+   - Technical details about trend calculation
    - Files changed (analysis.h, analysis.c, visualization.c)
    - Example output with trend indicator
-   - Simple testing notes
+   - Benefits for patient safety and decision support
+   - Testing considerations
 
-### Task 5: Create your GlucoTech Project Management Hub Copilot Space and Create Issue with it.
+6. **After PR is created**:
+   - Review the auto-generated description
+   - Verify all changes are included
+   - Check that the PR is targeting the correct base branch (main)
+
+### Task 4: Create GlucoTech Project Management Hub Copilot Space and Create Issue with it
 
 1. Navigate to GitHub Copilot Spaces https://github.com/copilot/spaces (ensure you have access to this feature)
 1. Click **Create Space** button
@@ -294,14 +296,15 @@ Follow-up prompts in the same chat conversation will have access to the same spa
 
 ## Expected Outcomes
 After completing this lab, you will have:
-- Created comprehensive unit tests for medical device alarm systems
+- Created and managed feature branches for development
 - Successfully integrated GitHub MCP server with Copilot
 - **Implemented simple glucose trend display feature**
 - **Added trend arrows to enhance data visualization**
 - Mastered automated pull request workflows using agent mode
+- Learned proper Git workflow with feature branches and remote repositories
 - Experimented with and optimized custom Copilot instructions
 - Enhanced repository management through AI-assisted workflows
-- Demonstrated advanced testing and integration practices
+- Demonstrated professional development practices with version control
 
 ## Usage
 
@@ -405,15 +408,17 @@ lab_3/challenge/
    cd lab_3/challenge
    ```
 
-2. **Create unit tests for alarm function** (Task 1)
+2. **Set up GitHub MCP server integration** (Task 1)
 
-3. **Set up GitHub MCP server integration** (Task 2)
+3. **Use Copilot to check existing pull requests** (Task 2)
 
-4. **Use Copilot to check existing pull requests** (Task 3)
+4. **Implement glucose trend display and create pull request** (Task 3)
 
-5. **Create pull request using agent mode** (Task 4)
+5. **Create GlucoTech Project Management Hub Copilot Space** (Task 4)
 
-6. **Experiment with custom instructions** (Task 5)
+6. **Use Copilot Spaces in VS Code** (Task 5)
+
+7. **Experiment with custom instructions** (Task 6)
 
 ## Configuration
 The system uses configurable parameters defined in `config.c`:
@@ -423,18 +428,18 @@ The system uses configurable parameters defined in `config.c`:
 - **Update Interval**: 2 seconds
 
 ## Key Learning Objectives
-- Mastering unit testing for medical device software
+- Creating and managing feature branches in Git
 - Understanding MCP server integration with GitHub Copilot
-- Using AI for automated repository management workflows  
+- Using AI for automated repository management workflows
+- Implementing proper Git workflow with remote repositories
 - Experimenting with and optimizing custom Copilot instructions
-- Implementing comprehensive testing strategies
 - **Advanced GitHub Copilot agent mode capabilities**
-- Professional software testing and quality assurance practices
+- Professional software development and version control practices
 
 ## Technical Details
 - **Language**: C99
-- **Build System**: Make with testing targets
-- **Testing Framework**: Custom unit test framework
+- **Build System**: Make
+- **Version Control**: Git with feature branch workflow
 - **Documentation**: Doxygen-style comments
 - **Error Handling**: Comprehensive input validation and error codes
 - **Memory Management**: Stack-allocated structures, no dynamic allocation
@@ -442,9 +447,9 @@ The system uses configurable parameters defined in `config.c`:
 
 ## Development Notes
 This lab demonstrates advanced concepts including:
-- Medical device software testing methodologies
+- Professional Git workflow with feature branches
 - AI-assisted repository management and automation
 - MCP protocol integration for enhanced development workflows
 - Custom instruction optimization for domain-specific AI assistance
-- Professional testing and quality assurance practices
+- Pull request creation and management using AI tools
 - Advanced collaborative development with AI tools
