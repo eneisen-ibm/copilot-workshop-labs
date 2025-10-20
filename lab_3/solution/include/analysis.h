@@ -9,6 +9,13 @@
  * @brief Header file for glucose data analysis functions.
  */
 
+// Enum to represent glucose trend direction
+typedef enum {
+    TREND_RISING,      // ↑ Glucose increasing
+    TREND_STABLE,      // → Glucose stable
+    TREND_FALLING      // ↓ Glucose decreasing
+} GlucoseTrend;
+
 // Structure to hold glucose statistics
 typedef struct {
     double time_in_range; // Percentage of time in target range (configurable)
@@ -52,5 +59,17 @@ int update_glucose_statistics(GlucoseStats* stats, const GeneratedData* data, co
  * @return 0 on success, -1 on error.
  */
 int print_glucose_statistics(const GlucoseStats* stats);
+
+/**
+ * @brief Calculate simple glucose trend
+ * 
+ * Compares current glucose value with previous reading to determine
+ * if glucose is rising, falling, or stable. Uses a threshold of ±5 mg/dL
+ * to determine stability.
+ * 
+ * @param data Pointer to glucose data with history
+ * @return GlucoseTrend indicating direction (RISING, STABLE, or FALLING)
+ */
+GlucoseTrend calculate_glucose_trend(const GeneratedData* data);
 
 #endif // ANALYSIS_H
