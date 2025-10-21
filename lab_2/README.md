@@ -34,7 +34,7 @@ Example commit messages:
    - Create a new pull request from your Lab 1 feature branch
    - Use a descriptive title and initial description
 
-### Task 2: Pull Request Summary Generation
+#### Task 1a: Pull Request Summary Generation
 **Objective**: Use Copilot to create comprehensive PR documentation
 
 1. **Use GitHub Copilot to generate a detailed PR summary** that includes:
@@ -45,7 +45,7 @@ Example commit messages:
 
 **Tip**: Use Copilot Chat to help structure and write professional PR descriptions
 
-### Task 3: Pull Request Review Process
+#### Task 1b: Pull Request Review Process
 **Objective**: Experience AI-assisted code review workflow
 
 1. **Add GitHub Copilot as a reviewer** to your pull request
@@ -53,7 +53,32 @@ Example commit messages:
 3. **Address suggestions** for code quality, documentation, or best practices
 4. **Understand the collaborative review process** with AI assistance
 
-### Task 4: Agent Mode - Debug Analysis Functions
+### Task 2: Pull the latest changes from the main branch
+**Objective**: Sync your local repository with the remote main branch
+
+1. **Switch to the main branch**:
+   ```bash
+   git checkout main
+   ```
+
+2. **Pull the latest changes**:
+   ```bash
+   git pull origin main
+   ```
+
+3. **Verify you're up to date**:
+   ```bash
+   git status
+   ```
+   You should see "Your branch is up to date with 'origin/main'"
+
+4. **Create and checkout a new feature branch for Lab 2**:
+   ```bash
+   git checkout -b feature/lab2-alarm-system
+   ```
+   This creates a new branch and switches to it, keeping your work isolated from main.
+
+### Task 3: Agent Mode - Debug Analysis Functions
 **Objective**: Use Copilot's agent mode for debugging complex issues
 
 **Background**: The analysis functions contain several bugs that cause incorrect statistical calculations. 
@@ -67,7 +92,7 @@ Example commit messages:
 - Ask for code review of statistical formulas
 - Request suggestions for edge case handling
 
-### Task 5: Agent Mode - Implement Alarm Functionality
+### Task 4: Agent Mode - Implement Alarm Functionality
 **Objective**: Use Copilot's agent mode to implement glucose alarm system
 
 1. **Use Copilot Agent Mode to implement the alarm system with the following functionalities**:
@@ -89,7 +114,7 @@ Example commit messages:
 - Only check rapid changes when previous data is available
 - Follow the existing code style and documentation patterns
 
-### Task 6: Unit Testing for Alarm Function
+### Task 5: Unit Testing for Alarm Function
 **Objective**: Create comprehensive unit tests for the glucose alarm system
 
 1. **Create unit test framework**:
@@ -114,7 +139,7 @@ Example commit messages:
 - Validate error handling paths
 - Ensure alarm messages are correct
 
-### Task 7: Comprehensive Code Review
+### Task 6: Comprehensive Code Review
 **Objective**: Use Copilot for thorough code quality improvement
 
 1. **Use GitHub Copilot to review all uncommitted changes**
