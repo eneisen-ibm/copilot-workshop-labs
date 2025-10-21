@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -g -O2
+CFLAGS = -Wall -Wextra -std=c99 -pedantic -g -O2
 INCLUDES = -Iinclude
 
 # Directories
@@ -33,7 +33,7 @@ $(OBJDIR):
 
 # Build target executable
 $(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET)
+	$(CC) $(OBJECTS) -o $(TARGET) -lm
 
 # Build object files with header dependencies
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) | $(OBJDIR)
@@ -43,7 +43,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) | $(OBJDIR)
 $(OBJDIR)/main.o: $(SRCDIR)/main.c $(INCDIR)/controller.h
 $(OBJDIR)/controller.o: $(SRCDIR)/controller.c $(INCDIR)/controller.h $(INCDIR)/data_generator.h $(INCDIR)/analysis.h $(INCDIR)/visualization.h $(INCDIR)/config.h
 $(OBJDIR)/data_generator.o: $(SRCDIR)/data_generator.c $(INCDIR)/data_generator.h
-$(OBJDIR)/analysis.o: $(SRCDIR)/analysis.c $(INCDIR)/analysis.h $(INCDIR)/data_generator.h
+$(OBJDIR)/analysis.o: $(SRCDIR)/analysis.c $(INCDIR)/analysis.h $(INCDIR)/data_generator.h $(INCDIR)/config.h
 $(OBJDIR)/visualization.o: $(SRCDIR)/visualization.c $(INCDIR)/visualization.h $(INCDIR)/data_generator.h
 $(OBJDIR)/config.o: $(SRCDIR)/config.c $(INCDIR)/config.h
 

@@ -1,12 +1,33 @@
 #include <stdio.h>
 #include "../include/data_generator.h"
 
+/**
+ * @file visualization.c
+ * @brief Contains functions for visualizing glucose data.
+ */
+
+/**
+ * @brief Prints the glucose data to the terminal.
+ *
+ * This function displays the current glucose data, including the timestamp,
+ * glucose value, and glucose history.
+ *
+ * @param data Pointer to the GeneratedData structure to print.
+ * @return 0 on success, -1 on error.
+ */
 int print_glucose_data(const GeneratedData* data) {
-    if (data == NULL) {
-        return -1;
+    if (data == NULL) return -1;
+
+    printf("\n--- Glucose Data ---\n");
+    printf("Timestamp: %s\n", data->timestamp);
+    printf("Glucose Value: %.1f mg/dL\n", data->glucose_value);
+    printf("Glucose History (last 30 entries):\n");
+    
+    for (int i = 0; i < 30; i++) {
+        printf("%.1f ", data->glucose_history[i]);
     }
     
-    printf("%s %.1f\n", data->timestamp, data->glucose_value);
+    printf("\n--------------------\n");
     
     return 0;
 }

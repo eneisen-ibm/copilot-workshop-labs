@@ -31,16 +31,23 @@ int generate_and_display_data(GeneratedData* data) {
  * 
  * @param stats Pointer to GlucoseStats structure.
  * @param data Pointer to GeneratedData structure.
+ * @param config Pointer to Config structure.
  * @return 0 on success, -1 on error.
  */
-int analyze_data() {
+int analyze_data(GlucoseStats* stats, const GeneratedData* data, const Config* config) {
+    if (stats == NULL || data == NULL || config == NULL) return -1;
+    
+    if (update_glucose_statistics(stats, data, config) != 0) return -1;
+    if (print_glucose_statistics(stats) != 0) return -1;
+    
+    return 0;
 }
 
 /**
  * @brief Runs the controller to manage glucose data generation.
  *
- * This function initializes the data generator, updates statistics, formats
- * data as CSV, and handles visualization.
+ * This function initializes the data generator, updates statistics, and
+ * formats data as CSV.
  *
  * @return 0 on success, -1 on error.
  */
@@ -49,8 +56,8 @@ int run_controller(void) {
 
     if (initialize_data_generator() != 0) return -1;
     
-    //GlucoseStats stats = {0};
-    //if (initialize_glucose_statistics(&stats) != 0) return -1;
+    GlucoseStats stats = {0};
+    if (initialize_glucose_statistics(&stats) != 0) return -1;
 
     printf("Starting glucose data generation from controller...\n");
 
@@ -62,7 +69,10 @@ int run_controller(void) {
             continue;
         }
         
-        //add analysis using analyze_data()
+        if (analyze_data(&stats, &data, &config) != 0) {
+            printf("Warning: Failed to analyze data, continuing...\n");
+            continue;
+        }
         
         sleep(config.sleep_interval);
     }
