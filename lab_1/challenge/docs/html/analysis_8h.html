@@ -95,61 +95,34 @@ $(function(){initNavTree('analysis_8h.html','',''); });
 <p>Header file for glucose data analysis functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="data__generator_8h_source.html">data_generator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
 </div>
 <p><a href="analysis_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:SummaryStats" id="r_SummaryStats"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_summary_stats.html">SummaryStats</a></td></tr>
 <tr class="memitem:GlucoseStats" id="r_GlucoseStats"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_glucose_stats.html">GlucoseStats</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af835e36d58e3bc9cec7aee01628a1817" id="r_af835e36d58e3bc9cec7aee01628a1817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af835e36d58e3bc9cec7aee01628a1817">initialize_statistics</a> (<a class="el" href="struct_summary_stats.html">SummaryStats</a> *stats)</td></tr>
-<tr class="memitem:aaf8abaeb57b71fc1fb6b1c82e6225508" id="r_aaf8abaeb57b71fc1fb6b1c82e6225508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf8abaeb57b71fc1fb6b1c82e6225508">update_statistics</a> (<a class="el" href="struct_summary_stats.html">SummaryStats</a> *stats, const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
-<tr class="memitem:adb009fb192ccae9d284d435935f6dc4e" id="r_adb009fb192ccae9d284d435935f6dc4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb009fb192ccae9d284d435935f6dc4e">print_statistics</a> (const <a class="el" href="struct_summary_stats.html">SummaryStats</a> *stats)</td></tr>
-<tr class="memitem:a19a3b67828c552af590b30c718792465" id="r_a19a3b67828c552af590b30c718792465"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19a3b67828c552af590b30c718792465">initialize_glucose_statistics</a> (<a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats)</td></tr>
-<tr class="memdesc:a19a3b67828c552af590b30c718792465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the glucose statistics structure.  <br /></td></tr>
-<tr class="memitem:a250c55bf9b968447f64e8f6166c87f9a" id="r_a250c55bf9b968447f64e8f6166c87f9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a250c55bf9b968447f64e8f6166c87f9a">update_glucose_statistics</a> (<a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats, const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
-<tr class="memdesc:a250c55bf9b968447f64e8f6166c87f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the glucose statistics with new data.  <br /></td></tr>
-<tr class="memitem:ab931d44d05ed3db10a2280c7c86e4a1c" id="r_ab931d44d05ed3db10a2280c7c86e4a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab931d44d05ed3db10a2280c7c86e4a1c">print_glucose_statistics</a> (const <a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats)</td></tr>
-<tr class="memdesc:ab931d44d05ed3db10a2280c7c86e4a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the glucose statistics to the terminal.  <br /></td></tr>
-<tr class="memitem:aac932333d88d1977a6c5da0a97344705" id="r_aac932333d88d1977a6c5da0a97344705"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac932333d88d1977a6c5da0a97344705">check_glucose_alarms</a> (const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data)</td></tr>
+<tr class="memitem:a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1" id="r_a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1">initialize_glucose_statistics</a> (<a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats)</td></tr>
+<tr class="memdesc:a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the glucose statistics structure.  <br /></td></tr>
+<tr class="memitem:a365fbfb693d3de66599012d67951e64e" id="r_a365fbfb693d3de66599012d67951e64e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a365fbfb693d3de66599012d67951e64e">update_glucose_statistics</a> (<a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats, const <a class="el" href="struct_generated_data.html">GeneratedData</a> *data, const <a class="el" href="struct_config.html">Config</a> *config)</td></tr>
+<tr class="memdesc:a365fbfb693d3de66599012d67951e64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the glucose statistics with new data.  <br /></td></tr>
+<tr class="memitem:ab8cdb9eae58e3507626db3ef5ee214c8" id="r_ab8cdb9eae58e3507626db3ef5ee214c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8cdb9eae58e3507626db3ef5ee214c8">print_glucose_statistics</a> (const <a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *stats)</td></tr>
+<tr class="memdesc:ab8cdb9eae58e3507626db3ef5ee214c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the glucose statistics to the terminal.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for glucose data analysis functions. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aac932333d88d1977a6c5da0a97344705" name="aac932333d88d1977a6c5da0a97344705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac932333d88d1977a6c5da0a97344705">&#9670;&#160;</a></span>check_glucose_alarms()</h2>
+<a id="a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1" name="a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1">&#9670;&#160;</a></span>initialize_glucose_statistics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void check_glucose_alarms </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Checks glucose alarms based on the provided data. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure to analyze. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a19a3b67828c552af590b30c718792465" name="a19a3b67828c552af590b30c718792465"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19a3b67828c552af590b30c718792465">&#9670;&#160;</a></span>initialize_glucose_statistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initialize_glucose_statistics </td>
+          <td class="memname">int initialize_glucose_statistics </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span></td><td>)</td>
           <td></td>
@@ -165,40 +138,18 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>
-<a id="af835e36d58e3bc9cec7aee01628a1817" name="af835e36d58e3bc9cec7aee01628a1817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af835e36d58e3bc9cec7aee01628a1817">&#9670;&#160;</a></span>initialize_statistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initialize_statistics </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_summary_stats.html">SummaryStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initializes the summary statistics structure. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stats</td><td>Pointer to the <a class="el" href="struct_summary_stats.html">SummaryStats</a> structure to initialize. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab931d44d05ed3db10a2280c7c86e4a1c" name="ab931d44d05ed3db10a2280c7c86e4a1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab931d44d05ed3db10a2280c7c86e4a1c">&#9670;&#160;</a></span>print_glucose_statistics()</h2>
+<a id="ab8cdb9eae58e3507626db3ef5ee214c8" name="ab8cdb9eae58e3507626db3ef5ee214c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8cdb9eae58e3507626db3ef5ee214c8">&#9670;&#160;</a></span>print_glucose_statistics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_glucose_statistics </td>
+          <td class="memname">int print_glucose_statistics </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span></td><td>)</td>
           <td></td>
@@ -214,47 +165,30 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>
-<a id="adb009fb192ccae9d284d435935f6dc4e" name="adb009fb192ccae9d284d435935f6dc4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb009fb192ccae9d284d435935f6dc4e">&#9670;&#160;</a></span>print_statistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_statistics </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_summary_stats.html">SummaryStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Prints the summary statistics. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stats</td><td>Pointer to the <a class="el" href="struct_summary_stats.html">SummaryStats</a> structure to print. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a250c55bf9b968447f64e8f6166c87f9a" name="a250c55bf9b968447f64e8f6166c87f9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a250c55bf9b968447f64e8f6166c87f9a">&#9670;&#160;</a></span>update_glucose_statistics()</h2>
+<a id="a365fbfb693d3de66599012d67951e64e" name="a365fbfb693d3de66599012d67951e64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a365fbfb693d3de66599012d67951e64e">&#9670;&#160;</a></span>update_glucose_statistics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void update_glucose_statistics </td>
+          <td class="memname">int update_glucose_statistics </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_glucose_stats.html">GlucoseStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_config.html">Config</a> *</td>          <td class="paramname"><span class="paramname"><em>config</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -265,37 +199,11 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">stats</td><td>Pointer to the <a class="el" href="struct_glucose_stats.html">GlucoseStats</a> structure to update. </td></tr>
     <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure containing new data. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the <a class="el" href="struct_config.html" title="Structure to hold configuration parameters.">Config</a> structure containing threshold values. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="aaf8abaeb57b71fc1fb6b1c82e6225508" name="aaf8abaeb57b71fc1fb6b1c82e6225508"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf8abaeb57b71fc1fb6b1c82e6225508">&#9670;&#160;</a></span>update_statistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void update_statistics </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_summary_stats.html">SummaryStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_generated_data.html">GeneratedData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Updates the summary statistics with new vital signs data. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stats</td><td>Pointer to the <a class="el" href="struct_summary_stats.html">SummaryStats</a> structure to update. </td></tr>
-    <tr><td class="paramname">data</td><td>Pointer to the <a class="el" href="struct_generated_data.html">GeneratedData</a> structure with new data. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
 </div>
 </div>

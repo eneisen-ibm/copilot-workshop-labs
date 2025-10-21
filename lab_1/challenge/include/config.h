@@ -10,6 +10,8 @@
  * @brief Structure to hold configuration parameters.
  */
 typedef struct {
+    int hypoglycemia_threshold;
+    int hyperglycemia_threshold;
     int sleep_interval;
 } Config;
 
