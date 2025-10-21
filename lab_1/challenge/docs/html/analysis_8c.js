@@ -1,7 +1,6 @@
 var analysis_8c =
 [
-    [ "check_glucose_alarms", "analysis_8c.html#aac932333d88d1977a6c5da0a97344705", null ],
-    [ "initialize_glucose_statistics", "analysis_8c.html#a19a3b67828c552af590b30c718792465", null ],
-    [ "print_glucose_statistics", "analysis_8c.html#ab931d44d05ed3db10a2280c7c86e4a1c", null ],
-    [ "update_glucose_statistics", "analysis_8c.html#a250c55bf9b968447f64e8f6166c87f9a", null ]
+    [ "initialize_glucose_statistics", "analysis_8c.html#a3b9aa3dc0bb8c0dbdd3d0ce75d269eb1", null ],
+    [ "print_glucose_statistics", "analysis_8c.html#ab8cdb9eae58e3507626db3ef5ee214c8", null ],
+    [ "update_glucose_statistics", "analysis_8c.html#a365fbfb693d3de66599012d67951e64e", null ]
 ];
