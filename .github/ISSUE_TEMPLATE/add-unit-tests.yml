@@ -1,0 +1,101 @@
+name: "Add Unit Tests"
+description: "Request to add unit tests for existing code or new functionality."
+title: "[Unit Test]: "
+labels: ["testing", "enhancement"]
+body:
+  - type: dropdown
+    id: test_scope
+    attributes:
+      label: "What is the scope of the unit tests?"
+      description: "Select the area that needs unit test coverage."
+      options:
+        - Data Generator Module
+        - Analysis Module (Statistics)
+        - Visualization Module
+        - Alarm System Module
+        - Configuration Module
+        - Controller Module
+        - Multiple Modules
+        - New Functionality
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lab_location
+    attributes:
+      label: "Which lab does this apply to?"
+      description: "Select the lab where unit tests should be added."
+      options:
+        - Lab 1 - Foundation & Code Completion
+        - Lab 2 - Advanced Debugging & Alarm Systems
+        - Lab 3 - Testing & Integration
+        - All Labs
+        - Other/New Lab
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_summary
+    attributes:
+      label: "Summary of Required Tests"
+      description: "Briefly describe what functionality needs to be tested."
+      placeholder: "E.g., Add unit tests for glucose calculation functions, alarm threshold detection, data validation, etc."
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_scenarios
+    attributes:
+      label: "Test Scenarios to Cover"
+      description: "List specific test scenarios that should be implemented."
+      placeholder: |
+        E.g.,
+        - Test normal glucose range calculations
+        - Test boundary conditions (exactly at thresholds)
+        - Test error handling with invalid inputs
+        - Test null pointer handling
+        - Test edge cases (empty arrays, negative values, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Why are these tests needed?"
+      description: "Explain the reason for adding these unit tests."
+      placeholder: "E.g., To ensure medical device safety requirements, improve code quality, prevent regressions, validate critical functionality, etc."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority Level"
+      description: "How urgent is this testing need?"
+      options:
+        - Critical (Safety-related functionality)
+        - High (Core functionality)
+        - Medium (Important but not critical)
+        - Low (Nice to have)
+    validations:
+      required: true
+
+  - type: textarea
+    id: existing_tests
+    attributes:
+      label: "Existing Test Coverage (if any)"
+      description: "Describe any existing tests related to this area."
+      placeholder: "E.g., Currently has basic smoke tests but lacks comprehensive coverage, or no tests exist yet."
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "Check all that apply:"
+      options:
+        - label: "Tests cover all critical functionality"
+        - label: "Tests include boundary and edge cases"
+        - label: "Tests validate error handling paths"
+        - label: "Tests follow existing test framework patterns"
+        - label: "Tests are documented with clear descriptions"
+        - label: "All tests pass successfully"
